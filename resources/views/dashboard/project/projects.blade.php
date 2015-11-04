@@ -1,89 +1,79 @@
 @extends('dashboard/master')
 
-@include('dashboard/nav', ['active' => "class='active'"])
+@include('dashboard/nav')
 @section('content')
 <div class="row">
 </div>
 <div class="row">
 	<div class="col-md-6">
 		<div class="well">
-			<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ url('dashboard/projects') }}">
-				<fieldset>
-					<legend>Add Project</legend>
-					@if (count($errors) > 0)
-					<div class="alert alert-danger">
-						<ul>
-							@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-							@endforeach
-						</ul>
+			{!! Form::open(['url' => 'dashboard/projects', 'files' => true, 'class' => 'form-horizontal']) !!}
+			<fieldset>
+				<legend>Add Project</legend>
+				@if (count($errors) > 0)
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+				@endif
+				<div class="form-group">
+					{!! Form::label('title', 'Title', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::text('title', null, ['class' => 'form-control']) !!}
 					</div>
-					@endif
-
-					{!! csrf_field() !!}
-					<div class="form-group">
-						<label for="title" class="col-lg-2 control-label">Title</label>
-						<div class="col-lg-10">
-							<input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}">
-						</div>
+				</div>
+				<div class="form-group">
+					{!! Form::label('slug', 'Slug', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::text('slug', null, ['class' => 'form-control']) !!}
 					</div>
-
-					<div class="form-group">
-						<label for="slug" class="col-lg-2 control-label">Slug</label>
-						<div class="col-lg-10">
-							<input type="text" name="slug" class="form-control" id="slug" value="{{ old('slug') }}">
-						</div>
+				</div>
+				<div class="form-group">
+					{!! Form::label('excerpt', 'Excerpt', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'rows' => '3']) !!}
 					</div>
-
-					<div class="form-group">
-						<label for="excerpt" class="col-lg-2 control-label">Excerpt</label>
-						<div class="col-lg-10">
-							<textarea type="text" name="excerpt" class="form-control" id="excerpt" rows="3">{{ old('excerpt') }}</textarea>
-						</div>
+				</div>
+				<div class="form-group">
+					{!! Form::label('body', 'Body', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => '6']) !!}
 					</div>
-
-					<div class="form-group">
-						<label for="body" class="col-lg-2 control-label">Body</label>
-						<div class="col-lg-10">
-							<textarea type="text" name="body" class="form-control" id="body" rows="10">{{ old('body') }}</textarea>
-						</div>
+				</div>
+				<div class="form-group">
+					{!! Form::label('thumbnail', 'Thumbnail', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::file('thumbnail', null, ['class' => 'form-control']) !!}
 					</div>
-
-					<div class="form-group">
-						<label for="thumbnail" class="col-lg-2 control-label">Thumbnail</label>
-						<div class="col-lg-10">
-							<input type="file" name="thumbnail" id="thumbnail" multiple="" value="{{ old('thumbnail') }}">
-						</div>
+				</div>
+				<div class="form-group">
+					{!! Form::label('link', 'Link', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::text('link', null, ['class' => 'form-control']) !!}
 					</div>
-
-					<div class="form-group">
-						<label for="link" class="col-lg-2 control-label">Link</label>
-						<div class="col-lg-10">
-							<input type="text" name="link" class="form-control" id="link" value="{{ old('link') }}">
-						</div>
+				</div>
+				<div class="form-group">
+					{!! Form::label('href', 'Href', ['class' => 'col-lg-2 control-label']) !!}
+					<div class="col-lg-10">
+						{!! Form::text('href', null, ['class' => 'form-control']) !!}
 					</div>
-
-					<div class="form-group">
-						<label for="href" class="col-lg-2 control-label">Href</label>
-						<div class="col-lg-10">
-							<input type="text" name="href" class="form-control" id="href" value="{{ old('href') }}">
-						</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-2">{!! Form::label('published', 'Published') !!}</div>
+					<div class="togglebutton col-lg-10">
+						<label>{!! Form::checkbox('published') !!}</label>
 					</div>
-
-					<div class="form-group">
-						<div class="col-lg-2"><label for="published">Published</label></div>
-						<div class="togglebutton col-lg-10">
-							<label><input type="checkbox" name="published" value="1" {{ old('published') ? "checked='checked'" : ''}} id="published"></label>
-						</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-12">
+						{!! Form::submit('Add Project', ['class' => 'btn btn-primary'])!!}
 					</div>
-
-					<div class="form-group">
-						<div class="col-lg-10 col-lg-offset-2">
-							<button type="submit" class="btn btn-primary">Add Project</button>
-						</div>
-					</div>
-				</fieldset>
-			</form>
+				</div>
+			</fieldset>
+			{!! Form::close() !!}
 		</div>
 	</div>
 	<div class="col-md-6">
