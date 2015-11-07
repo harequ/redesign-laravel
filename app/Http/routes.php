@@ -30,6 +30,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('dashboard/projects', 'ProjectsController@viewProjectsList');
 Route::post('dashboard/projects', 'ProjectsController@saveProject');
-// Route::get('dashboard/projects/{slug}', 'ProjectsController@showProject');
+Route::get('dashboard/projects/{slug}/edit', 'ProjectsController@editProject');
+Route::patch('dashboard/projects/{id}', 'ProjectsController@updateProject');
+Route::post('dashboard/projects/{id}', 'ProjectImagesController@uploadImage');
 
 

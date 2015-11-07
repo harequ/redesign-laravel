@@ -16,10 +16,11 @@ var elixir = require('laravel-elixir');
     mix.styles([
     	'normalize.css',
     	'bootstrap.min.css',
-        'material-fullpalette.css',
+        'material.css',
         'ripples.css',
         'roboto.css',
-        'dashboard.css'
+        'dashboard.css',
+        'custom.css'
         ]);
     
     mix.scripts([

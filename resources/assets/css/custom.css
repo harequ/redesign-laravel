@@ -1,0 +1,31 @@
+.navbar a {
+	color: white !important;
+}
+
+a {
+	color: #00acc1 !important;
+}
+
+.container .well {
+	box-shadow: none;
+	border: 1px dashed #ccc;
+}
+
+.form-horizontal {
+	margin-bottom: 0;
+}
+
+.dashed {
+	border: 1px dashed #ccc;
+	text-align: center;
+	padding: 30px;
+	background: #fff;
+}
+
+#project-img {
+	text-align: left;
+}
+
+.mdi-action-visibility {
+	color: #00acc1;	
+}
