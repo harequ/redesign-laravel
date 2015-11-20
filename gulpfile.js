@@ -15,16 +15,17 @@ var elixir = require('laravel-elixir');
     // mix.sass('app.scss');
     mix.styles([
     	'normalize.css',
-    	'bootstrap.min.css',
-        'material.css',
-        'ripples.css',
+    	'bootstrap.css',
+        'bootstrap-switch.css',
         'roboto.css',
         'dashboard.css',
+        'offcanvas.css',
         'custom.css'
         ]);
     
     mix.scripts([
-    	'app.js'
+    	'app.js',
+        'bootstrap-switch.js'
         ]);
 
     mix.version(['css/all.css', 'js/all.js']);

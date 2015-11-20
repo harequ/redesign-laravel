@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Image;
+use Storage;
 use App\Project;
+use App\ProjectRole;
 
 class ProjectsController extends Controller
 {
@@ -27,7 +29,7 @@ class ProjectsController extends Controller
         $projects = Project::latest()->get();
         $published = $projects->where('published', 1)->count();
         $unpublished = $projects->where('published', 0)->count();
-        $projectRoles = \App\ProjectRole::lists('name', 'id');
+        $projectRoles = ProjectRole::lists('name', 'id');
         return view('dashboard.project.projects', compact('projects', 'published', 'unpublished', 'projectRoles'));
     }
 
@@ -39,6 +41,7 @@ class ProjectsController extends Controller
      */
     public function saveProject(Request $request)
     {
+
         // Validation for Add Project form
         $this->validate($request, [
             'title' => 'required',
@@ -67,18 +70,14 @@ class ProjectsController extends Controller
 
         // Checking if there is a file in request
         if($request->hasFile('thumbnail')) {
-            // get the file from the post request
             $file = $request->file('thumbnail');
-            // set the name for the thumbnail
-            $thumbName = 'tn-' . $file->getClientOriginalName();
-            // set the project folder path
-            $projectPath = public_path() . '/images/projects/' . $project->slug . '/';
-            // if project folder doesn't exist, create it
+            $thumbName = uniqid(). '-' . $file->getClientOriginalName();
+            $projectPath = 'images/projects/' . $project->slug . '/';
             if(!file_exists($projectPath)) {
-                mkdir($projectPath, 0777, true);     
+                Storage::disk('public')->makeDirectory($projectPath);
+                // mkdir($projectPath, 0777, true);     
             }
 
-            // give a temporary file path to the method make()
             $thumb = Image::make($request->file('thumbnail')->getRealPath());
             $thumb->fit(410, 277)->save($projectPath . $thumbName);
 
@@ -88,35 +87,27 @@ class ProjectsController extends Controller
 
         $project->save();
 
-        // Add project roles to current project.
+        // Add project roles to current project in pivot table.
         $project->projectRoles()->sync($request->list);
 
         return redirect()->back();
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showProject($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
     public function editProject($slug)
     {
-        $projectRoles = \App\ProjectRole::lists('name', 'id');
+        $projectRoles = ProjectRole::lists('name', 'id');
         $project = Project::where('slug', $slug)->firstOrFail();
         $project->projectRoles;
-        return view('dashboard.project.edit', compact('project', 'projectRoles'));   
+        $projectImages = $project->projectImages;
+        // dd($projectImages);
+        // $project->projectRoles;
+        return view('dashboard.project.edit', compact('project', 'projectRoles', 'projectImages'));   
     }
 
     /**
@@ -153,34 +144,28 @@ class ProjectsController extends Controller
 
         // Checking if there is a file in request
         if($request->hasFile('thumbnail')) {
-             // get the file from the post request
             $file = $request->file('thumbnail');
-            // set the name for the thumbnail
-            $thumbName = 'tn-' . $file->getClientOriginalName();
-            // set the project folder path
-            $projectPath = public_path() . '/images/projects/' . $project->slug . '/';
-            // if project folder doesn't exist, create it
+            $thumbName = uniqid() . '-' . $file->getClientOriginalName();
+            $projectPath = 'images/projects/' . $project->slug . '/';
             if(!file_exists($projectPath)) {
-                mkdir($projectPath, 0777, true);     
+                Storage::disk('public')->makeDirectory($projectPath);
+                // mkdir($projectPath, 0777, true);     
             }
 
-            // give a temporary file path to the method make()
             $thumb = Image::make($request->file('thumbnail')->getRealPath());
             $thumb->fit(410, 277)->save($projectPath . $thumbName);
 
             // remove the old image from images/projects_thumbnails folder
-            unlink($projectPath . $project->thumbnail);
-
+            Storage::disk('public')->delete($projectPath . $project->thumbnail);
+            // unlink($projectPath . $project->thumbnail);
             // set the updated thumbnail field into the database
             $project->thumbnail = $thumbName; 
         }
 
         $project->save();
 
-        // Add project roles to current project.
         $project->projectRoles()->sync($request->list);
 
-        // Flash message
         session()->flash('update_message', 'The Project has been updated successfully!');
 
         return redirect('dashboard/projects/' . $project->slug . '/edit');
@@ -189,11 +174,15 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteProject($slug)
     {
-        //
+        $project = Project::where('slug', $slug);
+        $projectPath = 'images/projects/' . $slug . '/';
+        Storage::disk('public')->deleteDirectory($projectPath);
+        $project->delete();
+        return redirect('dashboard/projects/');
     }
 }

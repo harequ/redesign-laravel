@@ -25,6 +25,10 @@ class Project extends Model
 		return $this->belongsToMany('App\ProjectRole', 'pivot_project_role_project', 'project_id', 'project_role_id')->withTimestamps();
 	}
 
+	public function projectImages() {
+		return $this->hasMany('App\ProjectImage');
+	}
+
 	/**
 	 * Get a list of projectRoles ids associated with the current project.
 	 * @return array

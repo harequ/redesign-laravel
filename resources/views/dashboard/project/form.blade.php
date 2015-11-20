@@ -23,8 +23,8 @@
 	</div>
 </div>
 <div class="form-group">
-	{!! Form::label('thumbnail', 'Thumbnail', ['class' => 'col-lg-2 control-label']) !!}
-	<div class="col-lg-7">
+	{!! Form::label('thumbnail', 'Thumb', ['class' => 'col-lg-2 control-label']) !!}
+	<div class="col-lg-10">
 		{!! Form::file('thumbnail', ['class' => 'form-control']) !!}
 	</div>
 </div>
@@ -47,13 +47,19 @@
 	</div>
 </div>
 <div class="form-group">
-	<div class="col-lg-2">{!! Form::label('published', 'Published') !!}</div>
-	<div class="togglebutton col-lg-10">
+	<div class="col-lg-offset-2 col-lg-10">
 		<label>{!! Form::checkbox('published') !!}</label>
 	</div>
 </div>
 <div class="form-group">
-	<div class="col-lg-12">
-		{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary'])!!}
+	<div class="col-lg-10 col-lg-offset-2">
+		<button type="submit" class="btn btn-primary">
+		  <span class="glyphicon {{$icon}}" aria-hidden="true"></span>&nbsp;{{$submitButtonText}}
+		</button>
+		{{-- <input class="btn btn-primary glyphicon glyphicon-floppy-disk" type="submit" value="{{$submitButtonText}}">
+		{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary'])!!} --}}
+		@if($delete)
+			<a href="{{ url('dashboard/projects') . '/' . $project->slug . '/delete' }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;{{ $delete }}</a>
+		@endif
 	</div>
 </div>
