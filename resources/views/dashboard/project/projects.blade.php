@@ -36,7 +36,7 @@
 						<td><i class="{{ $project->published ? 'fa fa-eye' : 'fa fa-eye-slash'}} "></i></td>
 						<td><img src="{{ asset('images/projects'). '/' . $project->slug. '/' . $project->thumbnail }}" width="50"></td>
 						<td>{{$project->title}}</td>
-						<td><a href="{{ url('dashboard/projects') . '/' . $project->slug . '/edit' }}">Edit</a> / <a href="{{ url('dashboard/projects') . '/' . $project->slug . '/delete' }}">Delete</a></td>
+						<td><a href="{{ url('dashboard/projects') . '/' . $project->slug . '/edit' }}">Edit</a> / <a href="{{ url('dashboard/projects') . '/' . $project->slug . '/delete' }}" class="delete">Delete</a></td>
 					</tr>
 					@endforeach
 				</tbody>

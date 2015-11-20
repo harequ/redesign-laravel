@@ -17,15 +17,14 @@ var elixir = require('laravel-elixir');
     	'normalize.css',
     	'bootstrap.css',
         'bootstrap-switch.css',
-        'roboto.css',
-        'dashboard.css',
-        'offcanvas.css',
+        'animate.css',
         'custom.css'
         ]);
     
     mix.scripts([
-    	'app.js',
-        'bootstrap-switch.js'
+        'bootstrap-switch.js',
+        'jquery.noty.packaged.js',
+        'app.js'
         ]);
 
     mix.version(['css/all.css', 'js/all.js']);

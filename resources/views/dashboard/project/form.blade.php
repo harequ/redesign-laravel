@@ -59,7 +59,7 @@
 		{{-- <input class="btn btn-primary glyphicon glyphicon-floppy-disk" type="submit" value="{{$submitButtonText}}">
 		{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary'])!!} --}}
 		@if($delete)
-			<a href="{{ url('dashboard/projects') . '/' . $project->slug . '/delete' }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;{{ $delete }}</a>
+			<a href="{{ url('dashboard/projects') . '/' . $project->slug . '/delete' }}" class="btn btn-danger delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;{{ $delete }}</a>
 		@endif
 	</div>
 </div>

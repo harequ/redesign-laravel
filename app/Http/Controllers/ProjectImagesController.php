@@ -70,7 +70,7 @@ class ProjectImagesController extends Controller
             Storage::disk('public')->delete($projectPath . $thumbnail);
             Storage::disk('public')->delete($projectPath . $imgOrigin);
             if(isset($imgThousand)) {
-                Storage::disk('public')->delete($projectPath . $thumbnail);
+                Storage::disk('public')->delete($projectPath . $imgThousand);
             }
 
             // removing table row from database

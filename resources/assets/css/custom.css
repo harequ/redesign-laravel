@@ -205,6 +205,15 @@ table {
 	border: none;
 }
 
+.table > thead > tr > th {
+    text-align: center;
+    border-bottom: none; 
+}
+
+.table > tbody > tr > td {
+	vertical-align: middle;
+}
+
 div.thumbnail:hover,
 div.thumbnail:focus,
 div.thumbnail.active {

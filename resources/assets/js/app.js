@@ -36,6 +36,36 @@ $(document).ready(function() {
 
 	});
 
+	// Noty
+	$('.delete').on('click', function(e) {
+		e.preventDefault();
+		var href = $(this).attr('href');
+		noty({
+            text        : 'Are you sure?',
+            type        : 'confirmation',
+            animation: {
+		        open: 'animated zoomIn', // Animate.css class names
+		        close: 'animated zoomOut', // Animate.css class names
+		    },
+            dismissQueue: true,
+            layout      : 'center',
+            modal 		: true,
+            theme       : 'redesign',
+            buttons     : [
+                {addClass: 'btn btn-default', text: 'Ok', onClick: function ($noty) {
+                    $noty.close();
+                    window.location.replace(href);
+
+                }
+                },
+                {addClass: 'btn btn-default', text: 'Cancel', onClick: function ($noty) {
+                    $noty.close();
+                }
+                }
+            ]
+        });
+	});
+
 	// Custom checkbox
 	$("[name='published']").bootstrapSwitch({
 		size: 'mini',
@@ -76,20 +106,22 @@ $(document).ready(function() {
 				'X-CSRF-TOKEN': CSRF_TOKEN 
 			},
 			success: function(data) {
-				imagesDiv.append('<div class="col-xs-6 col-sm-4 col-md-3"><a href="#" class="thumbnail"><img src="' + data.name + '"></a></div>');
+				imagesDiv.append('<div class="col-xs-6 col-sm-4 col-md-3"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-image btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>');
 			},
 			error: function(xhr) {
 				imagesDiv.append('<li>' + xhr.responseText + '</li>');
 			}
 		});
 
+		// clearing fields for a new input
 		imgFile.replaceWith(imgFile.val('').clone(true));
 		alt.val('');
 	});
 
 	// Removing images from project through AJAX
-	$('.remove-image').on('click', function(e) {
+	$('#project-images').on('click', '.remove-image', function(e) {
 		e.preventDefault();
+
 		var url = window.location.href;
 		var index = url.indexOf('/edit')
 		url = url.substring(0, index);
