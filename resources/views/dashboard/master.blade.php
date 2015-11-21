@@ -14,7 +14,7 @@
 				<li {!! (Request::is('dashboard/projects') ? 'class=active' : '') !!}>
 					<a href="{{ url('dashboard/projects') }}" ><i class="fa fa-folder-open"></i><span>&nbsp;&nbsp; Projects</span></a>
 				</li>
-				<li><a href="#"><i class="fa fa-picture-o"></i><span>&nbsp;&nbsp; Illustrations</span></a></li>
+				<li {!! (Request::is('dashboard/illustrations') ? 'class=active' : '') !!}><a href="{{ url('dashboard/illustrations') }}"><i class="fa fa-picture-o"></i><span>&nbsp;&nbsp; Illustrations</span></a></li>
 				<li><a href="#"><i class="fa fa-credit-card"></i><span>&nbsp;&nbsp; Logos</span></a></li>
 				<li><a href="#" id="menu-toggle"><i class="fa fa-chevron-left"></i></a></li>
 			</ul>
@@ -25,5 +25,6 @@
 	</div>
 	<script type="text/javascript" src="{{ asset('js/vendor/vendor.js') }}"></script>
 	<script type="text/javascript" src="{{ url(elixir('js/all.js')) }}"></script>
+	@include('dashboard/noty')	
 </body>
 </html>

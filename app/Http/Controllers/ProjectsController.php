@@ -74,8 +74,7 @@ class ProjectsController extends Controller
             $thumbName = uniqid(). '-' . $file->getClientOriginalName();
             $projectPath = 'images/projects/' . $project->slug . '/';
             if(!file_exists($projectPath)) {
-                Storage::disk('public')->makeDirectory($projectPath);
-                // mkdir($projectPath, 0777, true);     
+                Storage::disk('public')->makeDirectory($projectPath);   
             }
 
             $thumb = Image::make($request->file('thumbnail')->getRealPath());

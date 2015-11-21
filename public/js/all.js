@@ -2054,12 +2054,12 @@ $.noty.themes.redesign = {
 
         this.$bar.css({
             overflow    : 'hidden',
-            margin      : '30px 0',
+            margin      : '0',
             borderRadius: '0px',
         });
 
         this.$message.css({
-            fontSize  : '18px',
+            fontSize  : '16px',
             lineHeight: '16px',
             textAlign : 'center',
             padding   : '10px',
@@ -2102,15 +2102,9 @@ $.noty.themes.redesign = {
 
         switch(this.options.layout.name) {
             case 'top':
-                this.$bar.css({
-                    borderBottom: '2px solid #eee',
-                    borderLeft  : '2px solid #eee',
-                    borderRight : '2px solid #eee',
-                    borderTop   : '2px solid #eee',
-                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                break;
             case 'topCenter':
+                this.$message.css({fontSize: '14px', textAlign: 'center'});
+                break;
             case 'center':
             case 'bottomCenter':
             case 'inline':
@@ -2168,7 +2162,7 @@ $.noty.themes.redesign = {
                 this.$buttons.css({borderTop: '1px solid #0B90C4'});
                 break;
             case 'success':
-                this.$bar.css({backgroundColor: '#BCF5BC', borderColor: '#7cdd77', color: 'darkgreen'});
+                this.$bar.css({backgroundColor: '#91C9B3', borderColor: '#FFFFFF', color: '#297A5A'});
                 this.$buttons.css({borderTop: '1px solid #50C24E'});
                 break;
             default:
@@ -2228,25 +2222,60 @@ $(document).ready(function() {
 
 	});
 
-	// Noty
+	// // Noty function initialisation
+	// function callNoty(text, type, layout, timeout, href) {
+	// 	noty({
+ //            text        : text,
+ //            type        : type,
+ //            animation: {
+	// 	        open: 'animated zoomIn', // Animate.css class names
+	// 	        close: 'animated zoomOut', // Animate.css class names
+	// 	    },
+ //            dismissQueue: true,
+ //            layout      : layout,
+ //            timeout 	: timeout,
+ //            modal 		: true,
+ //            theme       : 'redesign',
+ //            buttons     :  (href) ?
+ //            [
+ //                {addClass: 'btn btn-default', text: 'Ok', onClick: function ($noty) {
+ //                    $noty.close();
+ //                    if(href) {
+ //                    	window.location.replace(href);
+ //                    }
+
+ //                }
+ //                },
+ //                {addClass: 'btn btn-default', text: 'Cancel', onClick: function ($noty) {
+ //                    $noty.close();
+ //                }
+ //                }
+ //            ] : false
+ //        });
+	// }
+
+	// Noty call before delete
 	$('.delete').on('click', function(e) {
 		e.preventDefault();
 		var href = $(this).attr('href');
+		// callNoty('Are you sure?', 'confirm', 'center', false, href);
 		noty({
-            text        : 'Are you sure?',
-            type        : 'confirmation',
-            animation: {
+			type: 'confirm',
+			theme: 'redesign',
+			modal: true,
+			animation: {
 		        open: 'animated zoomIn', // Animate.css class names
 		        close: 'animated zoomOut', // Animate.css class names
 		    },
-            dismissQueue: true,
-            layout      : 'center',
-            modal 		: true,
-            theme       : 'redesign',
-            buttons     : [
+			layout: 'center', 
+			text: 'Are you sure?', 
+			buttons     : 
+            [
                 {addClass: 'btn btn-default', text: 'Ok', onClick: function ($noty) {
                     $noty.close();
-                    window.location.replace(href);
+                    if(href) {
+                    	window.location.replace(href);
+                    }
 
                 }
                 },
@@ -2255,7 +2284,8 @@ $(document).ready(function() {
                 }
                 }
             ]
-        });
+		});
+		
 	});
 
 	// Custom checkbox
@@ -2267,9 +2297,6 @@ $(document).ready(function() {
 		offColor: 'default',
 		labelWidth: 0
 	});
-
-	// Alert messages slide
-	$('div.alert').delay(3000).slideUp(300);
 
 	// Adding images to project through AJAX
 	$('#add-image').on('click', function(e) {
@@ -2298,7 +2325,16 @@ $(document).ready(function() {
 				'X-CSRF-TOKEN': CSRF_TOKEN 
 			},
 			success: function(data) {
-				imagesDiv.append('<div class="col-xs-6 col-sm-4 col-md-3"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-image btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>');
+				switch(data.img) {
+					case 'projectImage' : 
+						imagesDiv.append('<div class="col-xs-6 col-sm-4 col-md-3"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-image btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>'); break;
+					case 'illustration' :
+						imagesDiv.append('<div class="col-xs-6 col-sm-3 col-md-2"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-illustration btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>'); break;
+					default : 
+						noty({type: 'error', theme: 'redesign', layout: 'top', text: 'You need to attach image before upload / alt text is required', timeout: 3000});
+
+						
+				}
 			},
 			error: function(xhr) {
 				imagesDiv.append('<li>' + xhr.responseText + '</li>');
@@ -2324,6 +2360,35 @@ $(document).ready(function() {
 		$.ajax({
 			type: 'POST',
 			url: url + '/remove-image',
+			data: ({'imageName' : imageName}),
+			headers: {
+            	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        	},
+			success: function(response) {
+				if(response == 'ok')
+					thumbnail.remove();
+				else {
+					console.log(response);
+				}
+			},
+			error: function(xhr) {
+				$('body').replaceWith('<body>' + xhr.responseText + '</body>');
+			}
+		});
+	});
+
+	// Removing illustrations through AJAX
+	$('#project-images').on('click', '.remove-illustration', function(e) {
+		e.preventDefault();
+
+		var url = window.location.href;
+		var thumbnail = $(this).parent().parent().parent();
+		var src = $(this).parent().parent().find('img').attr('src');
+		var imageName = src.split('/').reverse()[0];
+
+		$.ajax({
+			type: 'POST',
+			url: url + '/remove',
 			data: ({'imageName' : imageName}),
 			headers: {
             	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

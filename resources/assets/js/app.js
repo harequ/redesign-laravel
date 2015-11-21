@@ -36,25 +36,60 @@ $(document).ready(function() {
 
 	});
 
-	// Noty
+	// // Noty function initialisation
+	// function callNoty(text, type, layout, timeout, href) {
+	// 	noty({
+ //            text        : text,
+ //            type        : type,
+ //            animation: {
+	// 	        open: 'animated zoomIn', // Animate.css class names
+	// 	        close: 'animated zoomOut', // Animate.css class names
+	// 	    },
+ //            dismissQueue: true,
+ //            layout      : layout,
+ //            timeout 	: timeout,
+ //            modal 		: true,
+ //            theme       : 'redesign',
+ //            buttons     :  (href) ?
+ //            [
+ //                {addClass: 'btn btn-default', text: 'Ok', onClick: function ($noty) {
+ //                    $noty.close();
+ //                    if(href) {
+ //                    	window.location.replace(href);
+ //                    }
+
+ //                }
+ //                },
+ //                {addClass: 'btn btn-default', text: 'Cancel', onClick: function ($noty) {
+ //                    $noty.close();
+ //                }
+ //                }
+ //            ] : false
+ //        });
+	// }
+
+	// Noty call before delete
 	$('.delete').on('click', function(e) {
 		e.preventDefault();
 		var href = $(this).attr('href');
+		// callNoty('Are you sure?', 'confirm', 'center', false, href);
 		noty({
-            text        : 'Are you sure?',
-            type        : 'confirmation',
-            animation: {
+			type: 'confirm',
+			theme: 'redesign',
+			modal: true,
+			animation: {
 		        open: 'animated zoomIn', // Animate.css class names
 		        close: 'animated zoomOut', // Animate.css class names
 		    },
-            dismissQueue: true,
-            layout      : 'center',
-            modal 		: true,
-            theme       : 'redesign',
-            buttons     : [
+			layout: 'center', 
+			text: 'Are you sure?', 
+			buttons     : 
+            [
                 {addClass: 'btn btn-default', text: 'Ok', onClick: function ($noty) {
                     $noty.close();
-                    window.location.replace(href);
+                    if(href) {
+                    	window.location.replace(href);
+                    }
 
                 }
                 },
@@ -63,7 +98,8 @@ $(document).ready(function() {
                 }
                 }
             ]
-        });
+		});
+		
 	});
 
 	// Custom checkbox
@@ -75,9 +111,6 @@ $(document).ready(function() {
 		offColor: 'default',
 		labelWidth: 0
 	});
-
-	// Alert messages slide
-	$('div.alert').delay(3000).slideUp(300);
 
 	// Adding images to project through AJAX
 	$('#add-image').on('click', function(e) {
@@ -106,7 +139,16 @@ $(document).ready(function() {
 				'X-CSRF-TOKEN': CSRF_TOKEN 
 			},
 			success: function(data) {
-				imagesDiv.append('<div class="col-xs-6 col-sm-4 col-md-3"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-image btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>');
+				switch(data.img) {
+					case 'projectImage' : 
+						imagesDiv.append('<div class="col-xs-6 col-sm-4 col-md-3"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-image btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>'); break;
+					case 'illustration' :
+						imagesDiv.append('<div class="col-xs-6 col-sm-3 col-md-2"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-illustration btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>'); break;
+					default : 
+						noty({type: 'error', theme: 'redesign', layout: 'top', text: 'You need to attach image before upload / alt text is required', timeout: 3000});
+
+						
+				}
 			},
 			error: function(xhr) {
 				imagesDiv.append('<li>' + xhr.responseText + '</li>');
@@ -132,6 +174,35 @@ $(document).ready(function() {
 		$.ajax({
 			type: 'POST',
 			url: url + '/remove-image',
+			data: ({'imageName' : imageName}),
+			headers: {
+            	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        	},
+			success: function(response) {
+				if(response == 'ok')
+					thumbnail.remove();
+				else {
+					console.log(response);
+				}
+			},
+			error: function(xhr) {
+				$('body').replaceWith('<body>' + xhr.responseText + '</body>');
+			}
+		});
+	});
+
+	// Removing illustrations through AJAX
+	$('#project-images').on('click', '.remove-illustration', function(e) {
+		e.preventDefault();
+
+		var url = window.location.href;
+		var thumbnail = $(this).parent().parent().parent();
+		var src = $(this).parent().parent().find('img').attr('src');
+		var imageName = src.split('/').reverse()[0];
+
+		$.ajax({
+			type: 'POST',
+			url: url + '/remove',
 			data: ({'imageName' : imageName}),
 			headers: {
             	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

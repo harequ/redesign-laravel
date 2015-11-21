@@ -19,7 +19,7 @@ class ProjectImagesController extends Controller
     	$project = Project::findOrFail($id);
  
     	// Checking if there is a file in request
-        if($request->hasFile('imgFile')) {
+        if($request->hasFile('imgFile') && $request->alt) {
             $image = $request->file('imgFile');
             $imageNameOrigin = uniqid() . '-fullsize-' . $image->getClientOriginalName();
             $imageNameThumb = uniqid() . '-thumb-' . $image->getClientOriginalName();
@@ -51,7 +51,9 @@ class ProjectImagesController extends Controller
 
             $projectImage->save();
 
-            return ['name' => asset('/images/projects') . '/' . $project->slug . '/' . $imageNameThumb];
+            return ['name' => asset('/images/projects') . '/' . $project->slug . '/' . $imageNameThumb, 'img' => 'projectImg'];
+        } else {
+            return 'error';
         }
     }
 

@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="container-fluid">
-	@if(Session::has('update_message'))
-		<div class="alert alert-success alert-dismissable">
-			{{ Session::get('update_message') }}
-		</div>
-	@endif
 	<div class="row">
 		<div class="col-md-12">
 			<h2>Edditing project: {{ $project->title }}</h2>

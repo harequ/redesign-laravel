@@ -37,5 +37,7 @@ Route::patch('dashboard/projects/{id}', 'ProjectsController@updateProject');
 Route::post('dashboard/projects/{id}', 'ProjectImagesController@uploadImage');
 Route::post('dashboard/projects/{slug}/remove-image', 'ProjectImagesController@removeImage');
 
-
+Route::get('dashboard/illustrations', 'IllustrationsController@showIllustrations');
+Route::post('dashboard/illustrations', 'IllustrationsController@uploadIllustration');
+Route::post('dashboard/illustrations/remove', 'IllustrationsController@removeIllustration');
 

@@ -1309,12 +1309,12 @@ $.noty.themes.redesign = {
 
         this.$bar.css({
             overflow    : 'hidden',
-            margin      : '30px 0',
+            margin      : '0',
             borderRadius: '0px',
         });
 
         this.$message.css({
-            fontSize  : '18px',
+            fontSize  : '16px',
             lineHeight: '16px',
             textAlign : 'center',
             padding   : '10px',
@@ -1357,15 +1357,9 @@ $.noty.themes.redesign = {
 
         switch(this.options.layout.name) {
             case 'top':
-                this.$bar.css({
-                    borderBottom: '2px solid #eee',
-                    borderLeft  : '2px solid #eee',
-                    borderRight : '2px solid #eee',
-                    borderTop   : '2px solid #eee',
-                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                break;
             case 'topCenter':
+                this.$message.css({fontSize: '14px', textAlign: 'center'});
+                break;
             case 'center':
             case 'bottomCenter':
             case 'inline':
@@ -1423,7 +1417,7 @@ $.noty.themes.redesign = {
                 this.$buttons.css({borderTop: '1px solid #0B90C4'});
                 break;
             case 'success':
-                this.$bar.css({backgroundColor: '#BCF5BC', borderColor: '#7cdd77', color: 'darkgreen'});
+                this.$bar.css({backgroundColor: '#91C9B3', borderColor: '#FFFFFF', color: '#297A5A'});
                 this.$buttons.css({borderTop: '1px solid #50C24E'});
                 break;
             default:
