@@ -104,8 +104,6 @@ class ProjectsController extends Controller
         $project = Project::where('slug', $slug)->firstOrFail();
         $project->projectRoles;
         $projectImages = $project->projectImages;
-        // dd($projectImages);
-        // $project->projectRoles;
         return view('dashboard.project.edit', compact('project', 'projectRoles', 'projectImages'));   
     }
 

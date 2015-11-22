@@ -1409,19 +1409,16 @@ $.noty.themes.redesign = {
                 break;
             case 'error':
                 this.$bar.css({backgroundColor: '#FF8181', borderColor: '#e25353', color: '#FFF'});
-                this.$message.css({fontWeight: 'bold'});
-                this.$buttons.css({borderTop: '1px solid darkred'});
                 break;
             case 'information':
                 this.$bar.css({backgroundColor: '#78C5E7', borderColor: '#3badd6', color: '#FFF'});
                 this.$buttons.css({borderTop: '1px solid #0B90C4'});
                 break;
             case 'success':
-                this.$bar.css({backgroundColor: '#91C9B3', borderColor: '#FFFFFF', color: '#297A5A'});
-                this.$buttons.css({borderTop: '1px solid #50C24E'});
+                this.$bar.css({backgroundColor: '#91C9B3', borderColor: '#FFFFFF', color: '#FFF'});
                 break;
             default:
-                this.$bar.css({backgroundColor: '#3db585', borderColor: '#CCC', color: '#f2f2f2'});
+                this.$bar.css({backgroundColor: '#009688', borderColor: '#CCC', color: '#f2f2f2'});
                 break;
         }
     },

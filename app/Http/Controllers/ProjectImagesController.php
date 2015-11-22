@@ -51,7 +51,7 @@ class ProjectImagesController extends Controller
 
             $projectImage->save();
 
-            return ['name' => asset('/images/projects') . '/' . $project->slug . '/' . $imageNameThumb, 'img' => 'projectImg'];
+            return ['name' => asset('/images/projects') . '/' . $project->slug . '/' . $imageNameThumb, 'img' => 'projectImage'];
         } else {
             return 'error';
         }

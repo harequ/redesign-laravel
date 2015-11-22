@@ -41,3 +41,20 @@ Route::get('dashboard/illustrations', 'IllustrationsController@showIllustrations
 Route::post('dashboard/illustrations', 'IllustrationsController@uploadIllustration');
 Route::post('dashboard/illustrations/remove', 'IllustrationsController@removeIllustration');
 
+Route::get('dashboard/logos', 'LogosController@showLogos');
+Route::post('dashboard/logos', 'LogosController@uploadLogo');
+Route::post('dashboard/logos/remove', 'LogosController@removeLogo');
+
+
+
+
+
+
+
+
+
+
+
+
+
+

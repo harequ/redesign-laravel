@@ -146,8 +146,6 @@ $(document).ready(function() {
 						imagesDiv.append('<div class="col-xs-6 col-sm-3 col-md-2"><div class="thumbnail"><img src="' + data.name + '"><span><button class="remove-illustration btn btn-danger btn-sm glyphicon glyphicon-trash"></button></span></div></div>'); break;
 					default : 
 						noty({type: 'error', theme: 'redesign', layout: 'top', text: 'You need to attach image before upload / alt text is required', timeout: 3000});
-
-						
 				}
 			},
 			error: function(xhr) {
