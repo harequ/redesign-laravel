@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="{{ url(elixir('css/all.css')) }}">
+    <link rel="stylesheet" type="text/css" href="{{ url(elixir('css/dashboard.css')) }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{ asset('js/vendor/vendor.js') }}"></script>
-    <script type="text/javascript" src="{{ url(elixir('js/all.js')) }}"></script>
+    <script type="text/javascript" src="{{ asset('js/vendor/dashboard-vendor.js') }}"></script>
+    <script type="text/javascript" src="{{ url(elixir('js/dashboard.js')) }}"></script>
 </body>
 </html>

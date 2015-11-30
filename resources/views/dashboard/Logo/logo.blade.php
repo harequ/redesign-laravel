@@ -16,7 +16,7 @@
 										@foreach($logos as $logo)
 											<div class="col-xs-6 col-sm-3 col-md-2">
 												<div class="thumbnail">
-													<img src="{{url('images/logos') . '/' . $logo->logo }}" alt="{{ $logo->alt }}">
+													<img src="{{url('build/images/logos') . '/' . $logo->thumb }}" alt="{{ $logo->alt }}">
 													<span>
 														<button class="remove-illustration btn btn-danger btn-sm glyphicon glyphicon-trash"></button>
 													</span>

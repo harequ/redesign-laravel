@@ -15,6 +15,7 @@
 			<li><a href="#">Logos</a></li>
 		</ul> --}}
 		<ul class="nav navbar-nav navbar-right">
+			<li><a href="{{ url('/') }}">Homepage</a></li>
 			<li><a href="{{ url('auth/logout') }}" id="logout">Logout</a></li>
 		</ul>
 	</div>

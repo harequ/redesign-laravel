@@ -23,11 +23,11 @@ class ProjectImagesController extends Controller
             $image = $request->file('imgFile');
             $imageNameOrigin = uniqid() . '-fullsize-' . $image->getClientOriginalName();
             $imageNameThumb = uniqid() . '-thumb-' . $image->getClientOriginalName();
-            $projectPath = public_path() . '/images/projects/' . $project->slug . '/';
+            $projectPath = 'build/images/projects/' . $project->slug . '/';
             $imageNameThousand = '';
 
             if(!file_exists($projectPath)) {
-                mkdir($projectPath, 0777, true);     
+                Storage::disk('public')->makeDirectory($projectPath);     
             }
 
             $img = Image::make($image->getRealPath());
@@ -51,7 +51,7 @@ class ProjectImagesController extends Controller
 
             $projectImage->save();
 
-            return ['name' => asset('/images/projects') . '/' . $project->slug . '/' . $imageNameThumb, 'img' => 'projectImage'];
+            return ['name' => asset('build/images/projects') . '/' . $project->slug . '/' . $imageNameThumb, 'img' => 'projectImage'];
         } else {
             return 'error';
         }
@@ -61,7 +61,7 @@ class ProjectImagesController extends Controller
 
         if($request->imageName) {
             $projectImage = ProjectImage::where('img_thumb', $request->imageName)->firstOrFail();
-            $projectPath = 'images/projects/' . $slug . '/';
+            $projectPath = 'build/images/projects/' . $slug . '/';
             $thumbnail = $projectImage->img_thumb;
             $imgOrigin = $projectImage->img_origin;
             if($projectImage->img_thousand != null) {

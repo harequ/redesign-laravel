@@ -1,0 +1,117 @@
+header #nav {
+
+	@include clearfix;
+	z-index: 10;
+	background: darken($violetWarm, 20);
+	width: 100%;
+	opacity: 0.9;
+	overflow: hidden;
+
+	#pull {
+		display: none;
+		color: $creamy;
+		font-family: "Open Sans", "Times New Roman", serif;
+		font-size: 1.4em;
+		font-weight: 300;
+		text-decoration: none;
+		text-transform: uppercase;
+		text-align: center;
+		height: 45px;
+
+		@include breakpoint (max-width $small) {
+			display: block;
+			width: 100%;
+			position: relative;
+			padding: 10px 0;
+			height: 46px;
+		}
+
+		&:after {
+			content: "";
+			background: url("../images/nav-icon.png") no-repeat;
+			width: 25px;
+			height: 19px;
+			display: inline-block;
+			position: absolute;
+			right: 15px;
+			top: 12px;
+		}
+	}
+
+	.navbar {
+
+		@include container;
+		z-index: 3;
+		text-align: center;
+
+		@include breakpoint (max-width $small) {
+			display: none;
+		}
+		
+		ul {
+			display: inline-block;
+			@include breakpoint (max-width $small) {
+				display: block;
+
+				& :last-child {
+					border-bottom: none;
+				}
+			}
+
+			li {
+
+				float: left;
+				height: 40px;
+				border-top: 0px solid $pinky;
+				transition: all 100ms linear;
+
+				@include breakpoint (max-width $small) {
+					float: none;
+					border-top: 1px solid darken($violetWarm, 12);
+					padding: 0px;
+				}
+
+				&:first-child a {
+					border-left: none;
+				}
+
+				&:last-child a {
+					border-right: none;
+				}
+
+				a {
+					color: $creamy;
+					font-family: "Open Sans", "Times New Roman", serif;
+					font-size: 1.4em;
+					font-weight: 300;
+					text-decoration: none;
+					display: inline-block;
+					padding: 12px 20px;
+					
+	  				@include breakpoint (max-width $medium) {
+						font-size: 1.2em;
+					}
+					
+					@include breakpoint (max-width $small) {
+						padding: 8px;
+						width: 100%;
+					}
+
+					&.active {
+						// background: darken($violetWarm, 15);
+						color: $pinky;
+					}
+				} 
+
+				&:hover {
+					border-top: 3px solid $pinky;
+					
+					@include breakpoint (max-width $small) {
+						border-top: 1px solid darken($violetWarm, 5);
+						background-color: darken($violetWarm, 15);
+					}
+				}
+			} //li
+		} //ul
+	} //.navbar
+} //#nav

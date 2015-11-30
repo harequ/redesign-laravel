@@ -13,6 +13,11 @@ use App\Illustration;
 
 class IllustrationsController extends Controller
 {
+
+	public function __construct() {
+        $this->middleware('auth');
+    }
+
    public function showIllustrations() {
    		$illustrations = Illustration::latest()->get();
    		return view('dashboard/illustration/illustration', compact('illustrations'));
@@ -23,7 +28,7 @@ class IllustrationsController extends Controller
 	        $image = $request->file('imgFile');
 	        $imageNameOrigin = uniqid() . '-fullsize-' . $image->getClientOriginalName();
 	        $imageNameThumb = uniqid() . '-thumb-' . $image->getClientOriginalName();
-	        $illustrationPath = 'images/illustrations/';
+	        $illustrationPath = 'build/images/illustrations/';
 
 	        if(!file_exists($illustrationPath)) {
 	            Storage::disk('public')->makeDirectory($illustrationPath);     
@@ -31,7 +36,7 @@ class IllustrationsController extends Controller
 
 	        $img = Image::make($image->getRealPath());
 	        $img->save($illustrationPath . $imageNameOrigin);
-	        $img->fit('230')->save($illustrationPath . $imageNameThumb);
+	        $img->fit('320')->save($illustrationPath . $imageNameThumb);
 
 	        $illustration = new Illustration;
 	        $illustration->image = $imageNameOrigin; 
@@ -39,7 +44,7 @@ class IllustrationsController extends Controller
 	        $illustration->alt = $request->alt;
 	        $illustration->save();
 
-	        return ['name' => asset('/images/illustrations') . '/' . $imageNameThumb, 'img' => 'illustration'];
+	        return ['name' => asset('build/images/illustrations') . '/' . $imageNameThumb, 'img' => 'illustration'];
 	    } else {
 	        return 'error';
 	    }
@@ -48,7 +53,7 @@ class IllustrationsController extends Controller
    public function removeIllustration(Request $request) {
    		if($request->imageName) {
    		    $illustration = Illustration::where('thumb', $request->imageName)->firstOrFail();
-   		    $illustrationPath = 'images/illustrations/';
+   		    $illustrationPath = 'build/images/illustrations/';
    		    $imageNameOrigin = $illustration->image;
    		    $imageNameThumb = $illustration->thumb;
 

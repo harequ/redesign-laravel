@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
-
-Route::get('dashboard', ['middleware' => 'auth', function () {
-	return view('dashboard/dashboard');
-}]);
+Route::get('/', 'PagesController@index');
+Route::get('/projects/{slug}', 'PagesController@project');
 
 // Authentication routes...
 Route::get('dashboard/login', 'Auth\AuthController@getLogin');
@@ -27,6 +22,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 // Route::get('auth/register', 'Auth\AuthController@getRegister');
 // Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@showDashboard']);
 
 Route::get('dashboard/projects', 'ProjectsController@viewProjectsList');
 Route::post('dashboard/projects', 'ProjectsController@saveProject');
@@ -45,6 +42,7 @@ Route::get('dashboard/logos', 'LogosController@showLogos');
 Route::post('dashboard/logos', 'LogosController@uploadLogo');
 Route::post('dashboard/logos/remove', 'LogosController@removeLogo');
 
+Route::post('email', 'ContactController@sendEmail');
 
 
 

@@ -34,7 +34,7 @@
 							<h3 class="panel-title">Project's thumbnail</h3>
 						</div>
 						<div class="panel-body">
-							<img src="{{asset('images/projects/'. $project->slug . '/' . $project->thumbnail) }}" class="img-responsive" width="200" style="margin:auto;">
+							<img src="{{asset('build/images/projects/'. $project->slug . '/' . $project->thumbnail) }}" class="img-responsive" width="200" style="margin:auto;">
 						</div>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 											@foreach($projectImages as $image)
 												<div class="col-xs-6 col-sm-4 col-md-3">
 													<div class="thumbnail">
-														<img src="{{url('images/projects') . '/' . $project->slug . '/' . $image->img_thumb }}" alt="{{ $image->alt }}">
+														<img src="{{url('build/images/projects') . '/' . $project->slug . '/' . $image->img_thumb }}" alt="{{ $image->alt }}">
 														<span>
 															<button class="remove-image btn btn-danger btn-sm glyphicon glyphicon-trash"></button>
 														</span>

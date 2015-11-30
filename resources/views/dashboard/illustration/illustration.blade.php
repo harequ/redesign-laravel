@@ -16,7 +16,7 @@
 										@foreach($illustrations as $illustration)
 											<div class="col-xs-6 col-sm-3 col-md-2">
 												<div class="thumbnail">
-													<img src="{{url('images/illustrations') . '/' . $illustration->thumb }}" alt="{{ $illustration->alt }}">
+													<img src="{{url('build/images/illustrations') . '/' . $illustration->thumb }}" alt="{{ $illustration->alt }}">
 													<span>
 														<button class="remove-illustration btn btn-danger btn-sm glyphicon glyphicon-trash"></button>
 													</span>

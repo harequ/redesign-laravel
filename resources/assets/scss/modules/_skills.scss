@@ -1,0 +1,265 @@
+#skills {
+
+	background: url('../images/triangular-bg.png') $violetWarm;
+	@include clearfix;
+	padding-bottom: 45px;
+
+	img {
+		width: auto;
+		height: auto;
+		max-height: 100%;
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+
+	article {
+		padding: 50px 10px;
+
+		@include breakpoint(max-width 800px) {
+			padding: 0 10px;
+		}
+		
+		@include container;
+		img {		
+			@include span(5);
+			@include breakpoint(max-width 750px) {
+				@include full;
+				max-width: 562px;
+				margin-left: auto;
+				margin-right: auto;
+				float: none;
+			}
+		}
+		.skillz {
+			@include span(4);
+			@include breakpoint(max-width 750px) {
+				@include span(8);
+			}
+			@include breakpoint(max-width 550px) {
+				@include full;
+			}
+		}
+		.toolz {
+			ul {
+				li {
+					line-height: 0.8;
+					padding-bottom: 12px;
+				}
+				span {
+					font-size: 0.7em;
+					margin-top: -10px;
+				}
+			}
+			@include span(3 last);
+			@include prefix(20px);
+			@include breakpoint(max-width 750px) {
+				@include span(4 last);
+			}
+			@include breakpoint(max-width 550px) {
+				@include full;
+				@include prefix(0);
+			}
+		}
+
+		.skillz, .toolz {
+			margin-top: 4%;
+		}
+
+		h3 {
+			margin-bottom: 20px;
+			color: lighten($grey, 35);
+			font-size: 1.5em;
+			@include breakpoint(max-width 550px) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	dt {
+		float: left;
+		padding: 2px;
+		color: $creamy;
+		font-size: 0.8em;
+	}
+
+	dd {
+		background: darken($violetWarm, 3);
+		border-radius: 2px;
+	}
+
+	.bar {
+		margin-bottom: 10px;
+		color: $creamy;
+		padding: 4px;
+		text-align: center;
+		background-color: lighten($violetWarm, 8);
+		border-radius: 2px;
+		height: 28px;
+	}
+	
+	.html {
+		animation: html 1.2s ease-out forwards;
+		-webkit-animation: html 1.2s ease-out forwards;
+		-moz-animation: html 1.2s ease-out forwards;
+		-o-animation: html 1.2s ease-out forwards;
+	}
+
+	.css {
+		animation: css 1.2s ease-out forwards;
+		-webkit-animation: css 1.2s ease-out forwards;
+		-moz-animation: css 1.2s ease-out forwards;
+		-o-animation: css 1.2s ease-out forwards;
+	}
+
+	.javascript {
+		animation: javascript 1.2s ease-out forwards;
+		-webkit-animation: javascript 1.2s ease-out forwards;
+		-moz-animation: javascript 1.2s ease-out forwards;
+		-o-animation: javascript 1.2s ease-out forwards;
+	}
+
+	.php {
+		animation: php 1.2s ease-out forwards;
+		-webkit-animation: php 1.2s ease-out forwards;
+		-moz-animation: php 1.2s ease-out forwards;
+		-o-animation: php 1.2s ease-out forwards;
+	}
+
+	.wordpress {
+		animation: wordpress 1.2s ease-out forwards;
+		-webkit-animation: wordpress 1.2s ease-out forwards;
+		-moz-animation: wordpress 1.2s ease-out forwards;
+		-o-animation: wordpress 1.2s ease-out forwards;
+	}
+
+	.mysql {
+		animation: mysql 1.2s ease-out forwards;
+		-webkit-animation: mysql 1.2s ease-out forwards;
+		-moz-animation: mysql 1.2s ease-out forwards;
+		-o-animation: mysql 1.2s ease-out forwards;
+	}
+
+
+	@-webkit-keyframes html {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@-webkit-keyframes css {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@-webkit-keyframes javascript {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@-webkit-keyframes php {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@-webkit-keyframes wordpress {
+		0% { width:0%; }
+		100% { width:55%; }
+	}
+
+	@-webkit-keyframes mysql {
+		0% { width:0%; }
+		100% { width:50%; }
+	}
+
+	@-moz-keyframes html {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@-moz-keyframes css {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@-moz-keyframes javascript {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@-moz-keyframes php {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@-moz-keyframes wordpress {
+		0% { width:0%; }
+		100% { width:55%; }
+	}
+
+	@-moz-keyframes mysql {
+		0% { width:0%; }
+		100% { width:50%; }
+	}
+
+	@-o-keyframes html {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@-o-keyframes css {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@-o-keyframes javascript {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@-o-keyframes php {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@-o-keyframes wordpress {
+		0% { width:0%; }
+		100% { width:55%; }
+	}
+
+	@-o-keyframes mysql {
+		0% { width:0%; }
+		100% { width:50%; }
+	}
+
+	@keyframes html {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@keyframes css {
+		0% { width:0%; }
+		100% { width:90%; }
+	}
+
+	@keyframes javascript {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@keyframes php {
+		0% { width:0%; }
+		100% { width:70%; }
+	}
+
+	@keyframes wordpress {
+		0% { width:0%; }
+		100% { width:55%; }
+	}
+
+	@keyframes mysql {
+		0% { width:0%; }
+		100% { width:50%; }
+	}
+
+}

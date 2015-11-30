@@ -1,5 +1,5 @@
 body {
-	background: #3A484E url('../../images/square-bg.png');
+	background: #3A484E url('../images/square-bg.png');
 }
 
 a {
@@ -46,7 +46,6 @@ a:hover {
 #sidebar-wrapper {
 	z-index: 1;
 	position: fixed;
-	/*border-right: 1px solid #2B2E37;*/
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -54,7 +53,6 @@ a:hover {
 	height: auto;
 	overflow: hidden;
 	background: #252830;
-	/*padding-top: 75px;*/
 	transition: width ease-in 0.1s;
 }
 
@@ -63,14 +61,13 @@ a:hover {
 	position: absolute;
 	padding: 20px;
 	transition: all ease-in 0.1s;
-	/*background: #222 url('../../images/dashboard-bg.jpg');*/
 }
 
 #page-content-wrapper h2 {
 	padding-left: 15px;
 }
 
-#page-content-wrapper h2 {
+#page-content-wrapper h2, h1 {
 	margin-top: 0;
 	margin-bottom: 30px;
 	color: #ddd;
@@ -293,7 +290,7 @@ div.thumbnail.active {
 	padding-bottom: 30px;
 	padding-top: 90px;
 	color: #FFC107;
-	background: #21292C url('../../images/square-bg.png');
+	background: #21292C url('../images/square-bg.png');
 }
 
 .greetings i {

@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Open+Sans:300italic,400,600italic,800|Courgette);
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@include border-box-sizing; //uses border box sizing like the old IE
+
+$susy: (
+	columns: 12,
+	container: 1000px,
+	// gutters: 1/5,
+	// gutter-position: after
+	// global-box-sizing: border-box
+);
+
+$narrow: 370px;
+$small: 700px;
+$medium: 960px;
+$wide: 1200px;
+
+// Color Palette
+$white: #f0f0f0;
+$milky: #F2EBC7;
+$creamy: #F2EBC7;
+$violetWarm: #644D52;
+$grey: #666666;
+$pinky: #FF895A;
+$awesome: #A49A87;
+$selection: #CBB8A7;

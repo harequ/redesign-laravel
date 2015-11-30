@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+require('laravel-elixir-sass-compass');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,20 +13,45 @@ var elixir = require('laravel-elixir');
  */
 
  elixir(function(mix) {
-    // mix.sass('app.scss');
+
     mix.styles([
     	'normalize.css',
     	'bootstrap.css',
         'bootstrap-switch.css',
         'animate.css',
         'custom.css'
-        ]);
+        ], 'public/css/dashboard.css');
     
     mix.scripts([
-        'bootstrap-switch.js',
         'jquery.noty.packaged.js',
-        'app.js'
-        ]);
+        'dashboard.js'
+        ], 'public/js/dashboard.js');
 
-    mix.version(['css/all.css', 'js/all.js']);
+    mix.scripts([
+        'jquery-2.1.4.js',
+        'jquery.waypoints.js',
+        'lightbox.js',
+        'sticky.js',
+        'slick.js',
+        'jquery.form.js',
+        'jquery.validate.js',
+        'script.js'
+        ], 'public/js/app.js');
+
+    mix.compass("style.scss", "public/css/", {
+        modules: ['susy', 'breakpoint'],
+        sass: "resources/assets/scss",
+        config_file: "config.rb",
+        font: "public/build/fonts",
+        image: "public/images",
+        javascript: "public/build/js",
+        sourcemap: true
+    });
+
+    mix.version(['css/dashboard.css', 'css/style.css', 'js/dashboard.js', 'js/app.js']);
+
+    mix.browserSync({
+        proxy: 'localhost'
+    });
+
 });

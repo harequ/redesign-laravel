@@ -1,0 +1,125 @@
+#work {
+	background: url('../images/triangular-bg.png') $violetWarm;
+
+	h3 {
+		line-height: 1;
+		text-decoration: none;
+		transition: border-left 100ms linear 0ms,
+						padding-left 100ms linear 0ms;
+
+		&:hover {
+			transition: border-left 100ms linear 0ms,
+							padding-left 100ms ease-out 100ms;
+			border-left: 3px solid $pinky;
+			padding-left: 15px;
+		}
+
+		@include breakpoint(0 750px) {
+			transition-property: none;
+			&:hover {
+				transition-property: none;
+				border-left: none;
+				padding-left: 0;
+			}
+		}
+	}
+
+	h3 a {
+		color: lighten($grey, 50);
+		text-decoration: none;
+		border-bottom: none;
+
+		@include breakpoint(0 750px) {
+			&:hover {
+				color: $pinky;
+			}
+		}
+	}
+
+	.project-wrap {
+		width: 100%;
+		border-top: 1px dashed lighten($violetWarm, 6);
+    	&:first-child {
+    		border-top: none;
+    	}
+    	&:last-child {
+    		border-bottom: none;
+    	}
+	}
+
+	.project {
+    	padding: 40px 20px;
+		@include container(730px);
+		
+		&:first-child {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+	}
+
+	h2 {
+		margin-bottom: 20px;
+
+		@include breakpoint(max-width 750px) {
+			margin-bottom: 10px;
+		}
+	}
+
+	.project img {
+		@include span(6);
+		@include border-radius(5px);
+		padding-top: 30px;
+		background: lighten($grey, 52);
+		background-image: url('../images/browser-circles.png');
+		background-repeat: no-repeat;
+		background-position: 10px 10px;
+
+		@include breakpoint(0 750px) {
+			@include full;
+			max-width: 410px;
+			padding-left: 0;
+			padding-right: 0;
+			display: block;
+			margin: 0 auto;
+			float: none;
+		}
+	}
+
+	.project div {
+		padding-top: 25px;
+		@include span(6 last);
+		@include prefix(30px);
+
+		@include breakpoint(0 750px) {
+			@include break;
+			@include full;
+			@include prefix(0);
+			padding-top: 0;
+			text-align: center;
+			margin-top: 20px;
+		}
+		p {
+			padding-top: 12px;
+			color: lighten($grey, 30);
+		}
+
+		.role {
+			@include clearfix;
+			margin-top: 5px;
+		}
+		.role li {
+			margin-right: 3px;
+			font-size: .7em;
+			display: inline-block;
+			float: left;
+			padding: 0 3px;
+			color: lighten($pinky, 10);
+			background: darken($violetWarm, 2);
+
+			@include breakpoint(0 750px) {
+				float: none;
+			}
+		}
+	}
+
+} // #work

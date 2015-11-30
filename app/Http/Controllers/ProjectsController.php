@@ -72,7 +72,7 @@ class ProjectsController extends Controller
         if($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $thumbName = uniqid(). '-' . $file->getClientOriginalName();
-            $projectPath = 'images/projects/' . $project->slug . '/';
+            $projectPath = 'build/images/projects/' . $project->slug . '/';
             if(!file_exists($projectPath)) {
                 Storage::disk('public')->makeDirectory($projectPath);   
             }
@@ -143,7 +143,7 @@ class ProjectsController extends Controller
         if($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $thumbName = uniqid() . '-' . $file->getClientOriginalName();
-            $projectPath = 'images/projects/' . $project->slug . '/';
+            $projectPath = 'build/images/projects/' . $project->slug . '/';
             if(!file_exists($projectPath)) {
                 Storage::disk('public')->makeDirectory($projectPath);
                 // mkdir($projectPath, 0777, true);     
@@ -177,7 +177,7 @@ class ProjectsController extends Controller
     public function deleteProject($slug)
     {
         $project = Project::where('slug', $slug);
-        $projectPath = 'images/projects/' . $slug . '/';
+        $projectPath = 'build/images/projects/' . $slug . '/';
         Storage::disk('public')->deleteDirectory($projectPath);
         $project->delete();
         return redirect('dashboard/projects/');
