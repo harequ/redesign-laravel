@@ -23,7 +23,7 @@
 		<div class="tree"></div>
 		<section class="scene" id="contact">
 			<h2>Get in Touch</h2>
-			<a href="#" class="email">harequ@gmail.com</a>
+			<a href="#" class="email">csuvorin@gmail.com</a>
 			<div class="copy">
 				<p>Copyright &copy; 2015<br> Designed by Constantine Suvorin<br>Powered by Laravel</p>
 			</div>

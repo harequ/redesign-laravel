@@ -15,7 +15,7 @@ class ContactController extends Controller
 	   $data['messageLines'] = explode("\n", $request->get('message'));
 
 	   Mail::send('emails.email', $data, function ($message) use ($data) {
-			$message->to('inkncode@gmail.com')->subject('Message from inkncode.ru by ' . $data['name']);
+			$message->to('csuvorin@gmail.com')->subject('Message from csuvorin.ru by ' . $data['name']);
 	   });
 
 	   return 'success';

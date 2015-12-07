@@ -39,13 +39,14 @@ require('laravel-elixir-sass-compass');
         ], 'public/js/app.js');
 
     mix.compass("style.scss", "public/css/", {
+        style: "compressed",
         modules: ['susy', 'breakpoint'],
         sass: "resources/assets/scss",
         config_file: "config.rb",
         font: "public/build/fonts",
         image: "public/images",
         javascript: "public/build/js",
-        sourcemap: true
+        sourcemap: false
     });
 
     mix.version(['css/dashboard.css', 'css/style.css', 'js/dashboard.js', 'js/app.js']);
