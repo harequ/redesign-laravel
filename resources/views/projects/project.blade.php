@@ -6,6 +6,9 @@
 		<h2>{{ $project-> title }}</h2>
 		<div class="desc">
 			<p>{{ $project->body }}</p>
+			@if($project->link && $project->href)
+				<p>Visit the website: <a href="{{ $project->href }}">{{ $project->link }}</a></p>
+			@endif
 		</div>
 		<div class="role">
 			<p>What I did:</p>

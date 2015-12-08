@@ -49,8 +49,6 @@ class ProjectsController extends Controller
             'excerpt' => 'required',
             'body' => 'required',
             'thumbnail' => 'required',
-            'link' => 'required',
-            'href' => 'required',
             'list' => 'required',
             'pusblished' => 'boolean'
         ]);
@@ -121,8 +119,6 @@ class ProjectsController extends Controller
             'slug' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
-            'link' => 'required',
-            'href' => 'required',
             'list' => 'required',
             'pusblished' => 'boolean'
         ]);
