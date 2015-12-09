@@ -1,6 +1,7 @@
 .overview {
-	@include container;
-	padding: 20px 10px;
+	@include container(1000px);
+	padding-top: 20px;
+	padding-bottom: 20px;
 
 	h2 {
 		@include full;
