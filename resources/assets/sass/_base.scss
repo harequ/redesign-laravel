@@ -1,0 +1,148 @@
+body {
+	width: 100%;
+	height: 100vh;
+	font: 300 16px/24px "Roboto Slab", "Times New Roman", serif;
+	color: lighten($grey, 30);
+}
+
+main {
+	position: relative;
+	z-index: 2;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: $pinky;
+	text-decoration: none;
+	transition: all 100ms linear;
+
+	&:hover {
+		color: lighten($pinky, 10);
+	}
+}
+
+h1 {
+	font-family: "Open Sans", "Times New Roman", serif;
+	font-size: 0.9em;
+	font-weight: 300;
+	font-style: italic;
+}
+
+dd {
+	margin: 0;
+}
+
+h2 {
+	font-family: Courgette, "Times New Roman", serif;
+	font-size: 2.5em;
+	line-height: 60px;
+	color: lighten($grey, 35);
+	border-top: 2px solid lighten($grey, 35);
+	border-bottom: 2px solid lighten($grey, 35);
+	display: inline-block;
+  	text-align: center;
+  	font-weight: normal;
+  	margin: 0;
+
+  	@include breakpoint(max-width $small) {
+  		font-size: 2.2em;
+  		line-height: 45px;
+  	}
+
+  	@include breakpoint(max-width 470px) {
+  		font-size: 1.7em;
+  	}
+
+  	@include breakpoint(max-width $narrow) {
+  		margin: 10px 0 5px;
+  		font-size: 1.4em;
+  		line-height: 40px;
+  		display: block;
+  	}
+}
+
+.line {
+	text-align: center;
+	overflow: hidden;
+	margin: 0 10px;
+}
+
+section h2 span {
+	position: relative;
+}
+
+section h2 span:before,
+section h2 span:after {
+	content: "";
+	position: absolute;
+	border-bottom: 2px solid lighten($grey, 35);
+	width: 100%;
+	top: 50%;
+
+	@include breakpoint(max-width $narrow) {
+		border: none;
+	}
+}
+
+section h2 span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+section h2 span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+h3 {
+	font-family: "Roboto Slab", "Times New Roman", serif;
+	font-size: 1.8em;
+	line-height: 36px;
+	font-weight: 400;
+	color: $pinky;
+	margin: 0;
+}
+
+p {
+	font-family: "Roboto Slab", "Times New Roman", serif;
+	font-size: 0.9em;
+	line-height: 24px;
+	font-weight: 300;
+	color: lighten($grey, 25);
+	margin: 0;
+}
+
+::-moz-selection {
+    color: $white;
+    background: $selection;
+}
+
+::selection {
+    color: $white; 
+    background: $selection;
+}
+
+.stuck {
+	position: fixed;
+	top: 0;
+}
+
+#wrapper {
+	background: url('../images/triangular-bg.png');
+}
+
+.scene {
+	padding-top: 40px;
+
+	@include breakpoint(max-width $narrow) {
+		padding-top: 20px;
+	}
+}
+
+.hide {
+	display: none;
+}

@@ -1,0 +1,51 @@
+.carousel {
+	background: white;
+	margin-left: 3px;
+	margin-right: 3px;
+	box-shadow: 0 0 3px lighten($grey, 40);
+
+	img {
+		
+		margin: 150px auto;;
+		height: 100%;
+
+		@include breakpoint(max-width $narrow) {
+			margin: 100px auto;
+			width: auto;
+			height: auto;
+			max-height: 100%;
+			max-width: 100%;
+			padding: 0 10px;
+		}
+	}
+
+	.slick-prev {
+  		left: 0;
+	}
+
+	.slick-next {
+  		right: 0;
+	}
+
+	.slick-slider {
+	  margin-bottom: 60px;
+	}
+
+	.slick-dots {
+	  position: absolute;
+	  bottom: -40px;
+	}
+
+	.slick-prev, .slick-next {
+		@include breakpoint(max-width $small) {
+			display: none !important;
+		}
+	}
+
+	.slick-track {
+		display: flex;
+    	align-items: center;
+    	justify-content: center;
+	}
+
+}
