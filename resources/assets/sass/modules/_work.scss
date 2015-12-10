@@ -67,7 +67,7 @@
 		@include span(6);
 		border-radius: 5px;
 		padding-top: 30px;
-		background: lighten($grey, 52);
+		background: darken($violetWarm, 4);
 		background-image: url('../images/browser-circles.png');
 		background-repeat: no-repeat;
 		background-position: 10px 10px;
