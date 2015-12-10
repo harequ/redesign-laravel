@@ -31,12 +31,12 @@ class ProjectImagesController extends Controller
             }
 
             $img = Image::make($image->getRealPath());
-            $img->save($projectPath . $imageNameOrigin);
-            if($img->width() > 1000) {
+            $image->move($projectPath, $imageNameOrigin);
+            if($img->width() > 980) {
                 $imageNameThousand = uniqid() . '-thousand-' . $image->getClientOriginalName();
-                $img->resize(1000, null, function ($constraint) {
+                $img->resize(980, null, function ($constraint) {
                     $constraint->aspectRatio();
-               })->save($projectPath . $imageNameThousand); 
+               })->save($projectPath . $imageNameThousand, 95); 
             }
             $img->fit('400')->save($projectPath . $imageNameThumb);
             // save into database

@@ -24,8 +24,8 @@ class IllustrationsController extends Controller
    }
 
    public function uploadIllustration(Request $request) {
-	    if($request->hasFile('imgFile') && $request->alt) {
-	        $image = $request->file('imgFile');
+        if($request->file('imgFile') && $request->alt) {
+            $image = $request->file('imgFile');
 	        $imageNameOrigin = uniqid() . '-fullsize-' . $image->getClientOriginalName();
 	        $imageNameThumb = uniqid() . '-thumb-' . $image->getClientOriginalName();
 	        $illustrationPath = 'build/images/illustrations/';
@@ -34,9 +34,9 @@ class IllustrationsController extends Controller
 	            Storage::disk('public')->makeDirectory($illustrationPath);     
 	        }
 
-	        $img = Image::make($image->getRealPath());
-	        $img->save($illustrationPath . $imageNameOrigin);
-	        $img->fit('320')->save($illustrationPath . $imageNameThumb);
+            $img = Image::make($image->getRealPath());
+	        $image->move($illustrationPath, $imageNameOrigin);
+	        $img->fit('320')->save($illustrationPath . $imageNameThumb, 100);
 
 	        $illustration = new Illustration;
 	        $illustration->image = $imageNameOrigin; 
