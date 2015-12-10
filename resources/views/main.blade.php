@@ -47,7 +47,7 @@
 				<textarea name="message" id="message"></textarea>
 			</p>
 			<p>
-				<input type="submit" name="submit" id="submit">
+				<input type="submit" name="submit" id="submit" value="Submit">
 			</p>
 		{!! Form::close() !!}
 	</div>

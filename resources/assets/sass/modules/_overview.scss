@@ -2,6 +2,9 @@
 	@include container(1000px);
 	padding-top: 20px;
 	padding-bottom: 20px;
+	@include breakpoint(max-width 800px) {
+		padding-top: 0;
+	}
 
 	h2 {
 		@include full;
@@ -27,6 +30,7 @@
 
 		@include breakpoint(max-width 800px) {
 			@include full;
+			@include suffix(0);
 		}
 	}
 
@@ -63,6 +67,8 @@
 
 	section.pr-description {
 		@include clearfix;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 
@@ -94,7 +100,6 @@
 
 			img {
 				width: auto;
-				height: auto;
 				max-height: 100%;
 				max-width: 100%;
 			}

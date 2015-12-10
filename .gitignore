@@ -4,3 +4,6 @@ Homestead.yaml
 Homestead.json
 .env
 .sass-cache
+public/build/images/illustrations
+public/build/images/logos
+public/build/images/projects

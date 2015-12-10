@@ -55,13 +55,14 @@ h2 {
   	}
 
   	@include breakpoint(max-width 470px) {
-  		font-size: 1.7em;
+  		font-size: 1.9em;
+  		line-height: 30px;
   	}
 
   	@include breakpoint(max-width $narrow) {
   		margin: 10px 0 5px;
   		font-size: 1.4em;
-  		line-height: 40px;
+  		line-height: 25px;
   		display: block;
   	}
 }

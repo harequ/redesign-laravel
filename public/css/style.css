@@ -407,12 +407,13 @@ h2 {
       line-height: 45px; } }
   @media (max-width: 470px) {
     h2 {
-      font-size: 1.7em; } }
+      font-size: 1.9em;
+      line-height: 30px; } }
   @media (max-width: 370px) {
     h2 {
       margin: 10px 0 5px;
       font-size: 1.4em;
-      line-height: 40px;
+      line-height: 25px;
       display: block; } }
 
 .line {
@@ -648,7 +649,7 @@ footer {
     color: #3c2e31; }
 
 #intro section {
-  background: url("../images/1st-page-redesign.jpg") no-repeat center center fixed;
+  background: url("../images/1st-page-redesign.jpg") no-repeat center center scroll;
   background-size: cover;
   position: relative;
   height: 100vh;
@@ -751,7 +752,7 @@ footer {
   top: -200px;
   position: absolute;
   z-index: 1; }
-  @media (max-width: 700px) {
+  @media (max-width: 1024px) {
     #intro .snow {
       display: none; } }
 
@@ -1368,6 +1369,9 @@ footer {
     content: " ";
     display: block;
     clear: both; }
+  @media (max-width: 800px) {
+    .overview {
+      padding-top: 0; } }
   .overview h2 {
     clear: both;
     width: 100%;
@@ -1395,7 +1399,8 @@ footer {
         width: 100%;
         float: left;
         margin-left: 0;
-        margin-right: 0; } }
+        margin-right: 0;
+        padding-right: 0%; } }
   .overview .role {
     width: 23.7288135593%;
     float: right;
@@ -1420,11 +1425,14 @@ footer {
     .overview .role ul {
       font-size: 0.9em;
       font-style: italic; }
-  .overview section.pr-description:before, .overview section.pr-description:after {
-    content: '';
-    display: table; }
-  .overview section.pr-description:after {
-    clear: both; }
+  .overview section.pr-description {
+    padding-left: 10px;
+    padding-right: 10px; }
+    .overview section.pr-description:before, .overview section.pr-description:after {
+      content: '';
+      display: table; }
+    .overview section.pr-description:after {
+      clear: both; }
   .overview section.pr-images {
     padding-top: 0; }
     .overview section.pr-images div {
@@ -1450,7 +1458,6 @@ footer {
           display: none; }
       .overview section.pr-images div img {
         width: auto;
-        height: auto;
         max-height: 100%;
         max-width: 100%; }
     .overview section.pr-images a.back {
