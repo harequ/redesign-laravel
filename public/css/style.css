@@ -1389,12 +1389,13 @@ footer {
     margin-left: 0;
     margin-right: 0;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 10px;
     border-top: none;
     border-bottom: none; }
     @media (max-width: 960px) {
       .overview h2 {
-        margin: 10px 0; } }
+        margin: 20px 0;
+        line-height: 30px; } }
   @media (max-width: 960px) {
     .overview p {
       font-size: 0.9em; } }
@@ -1422,10 +1423,10 @@ footer {
         float: left;
         margin-left: 0;
         margin-right: 0;
-        margin-top: 20px; } }
+        margin-top: 10px; } }
     .overview .role p {
-      color: #bfbfbf;
-      font-weight: bold; }
+      color: #b3b3b3;
+      font-weight: normal; }
     .overview .role ul {
       list-style: none inside; }
     .overview .role ul li:before {
@@ -1461,7 +1462,7 @@ footer {
         width: 40%;
         border-bottom: 1px dashed #b3b3b3; }
       .overview section.pr-images div:first-of-type {
-        margin-top: 40px; }
+        margin-top: 20px; }
       .overview section.pr-images div:last-of-type {
         margin-bottom: 20px; }
         .overview section.pr-images div:last-of-type:before {
@@ -1696,7 +1697,7 @@ footer.footer-project {
   box-shadow: 0 0 3px #cccccc; }
   .carousel img {
     margin: 150px auto;
-    height: 100%; }
+    max-height: 200px; }
     @media (max-width: 370px) {
       .carousel img {
         margin: 100px auto;

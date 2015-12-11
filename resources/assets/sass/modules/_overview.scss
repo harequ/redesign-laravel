@@ -9,12 +9,13 @@
 	h2 {
 		@include full;
 		text-align: left;
-		margin-top: 20px;
+		margin-top: 10px;
 		border-top: none;
 		border-bottom: none;
 
 		@include breakpoint(max-width $medium) {
-			margin: 10px 0;
+			margin: 20px 0;
+			line-height: 30px;
 	  	}
 	}
 
@@ -39,12 +40,12 @@
 
 		@include breakpoint(max-width 800px) {
 			@include full;
-			margin-top: 20px;
+			margin-top: 10px;
 		}
 
 		p {
-			color: lighten($grey, 35);
-			font-weight: bold;
+			color: lighten($grey, 30);
+			font-weight: normal;
 		}
 
 		ul{
@@ -88,7 +89,7 @@
 			}
 
 			&:first-of-type {
-				margin-top: 40px;
+				margin-top: 20px;
 			}
 
 			&:last-of-type {
