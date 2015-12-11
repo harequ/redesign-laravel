@@ -5,8 +5,10 @@
 		@foreach($projects as $project)
 		<div class="project-wrap">
 			<div class="project">
-				<a href="{{ url('projects') . '/' . $project->slug }}"><img src="{{ asset('build/images/projects') . '/' . $project->slug . '/' . $project->thumbnail}}" alt="{{ $project->title }}"></a>
-				<div>
+				<div class="project-image">
+					<a href="{{ url('projects') . '/' . $project->slug }}"><img src="{{ asset('build/images/projects') . '/' . $project->slug . '/' . $project->thumbnail}}" alt="{{ $project->title }}"></a>
+				</div>
+				<div class="excerpt">
 					<h3><a href="{{ url('projects') . '/' . $project->slug }}">{{ $project->title }}</a></h3>
 					@if(count($project->projectRoles) > 0)
 					<ul class="role">

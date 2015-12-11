@@ -76,7 +76,7 @@ class ProjectsController extends Controller
             }
 
             $thumb = Image::make($request->file('thumbnail')->getRealPath());
-            $thumb->fit(410, 277, function ($constraint) {
+            $thumb->fit(720, 520, function ($constraint) {
                 $constraint->upsize();
             })->save($projectPath . $thumbName, 100);
 
@@ -143,17 +143,14 @@ class ProjectsController extends Controller
             $thumbName = uniqid() . '-' . $file->getClientOriginalName();
             $projectPath = 'build/images/projects/' . $project->slug . '/';
             if(!file_exists($projectPath)) {
-                Storage::disk('public')->makeDirectory($projectPath);
-                // mkdir($projectPath, 0777, true);     
+                Storage::disk('public')->makeDirectory($projectPath);    
             }
 
             $thumb = Image::make($request->file('thumbnail')->getRealPath());
-            $thumb->fit(410, 277)->save($projectPath . $thumbName);
+            $thumb->fit(720, 520)->save($projectPath . $thumbName);
 
-            // remove the old image from images/projects_thumbnails folder
             Storage::disk('public')->delete($projectPath . $project->thumbnail);
-            // unlink($projectPath . $project->thumbnail);
-            // set the updated thumbnail field into the database
+
             $project->thumbnail = $thumbName; 
         }
 

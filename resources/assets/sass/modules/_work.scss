@@ -51,8 +51,9 @@
 	}
 
 	.project {
-    	padding: 40px 20px;
-		@include container(730px);
+    	padding: 40px 10px;
+    	display: table;
+		@include container(800px);
 	}
 
 	h2 {
@@ -62,9 +63,19 @@
 			margin-bottom: 10px;
 		}
 	}
+	
+	.project-image {
+		width: span(6);
+		display: table-cell;
+  		vertical-align: middle;
+
+  		a {
+  			line-height: 0;
+  			display: inline-block;
+  		}
+	}
 
 	.project img {
-		@include span(6);
 		border-radius: 5px;
 		padding-top: 30px;
 		background: darken($violetWarm, 4);
@@ -72,10 +83,10 @@
 		background-size: 44px 10px;
 		background-repeat: no-repeat;
 		background-position: 10px 10px;
+		max-width: 360px;
 
 		@include breakpoint(0 750px) {
 			@include full;
-			max-width: 410px;
 			padding-left: 0;
 			padding-right: 0;
 			display: block;
@@ -83,10 +94,17 @@
 			float: none;
 		}
 	}
+	
+	.project .excerpt {
+		@include breakpoint(0 750px) {
+			margin-top: 20px;
+		}
+	}
 
 	.project div {
-		padding-top: 25px;
-		@include span(6 last);
+		display: table-cell;
+  		vertical-align: middle;
+		width: span(6 last);
 		@include prefix(30px);
 
 		@include breakpoint(0 750px) {
@@ -95,7 +113,6 @@
 			@include prefix(0);
 			padding-top: 0;
 			text-align: center;
-			margin-top: 20px;
 		}
 		p {
 			padding-top: 12px;
@@ -121,4 +138,4 @@
 		}
 	}
 
-} // #work
+}

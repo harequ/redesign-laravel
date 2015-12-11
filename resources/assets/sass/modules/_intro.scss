@@ -1,163 +1,165 @@
-#intro section {
-	@include backImage("../images/1st-page-redesign.jpg");
-	position: relative;
-	height: 100vh;
-	display: flex;
-   align-items: center;
-   justify-content: center;
-   overflow: hidden;
-}
-
-#intro h1 {
-	@include container(423px);
-	position: relative;
-	text-align: center;
-	color: #fff;
-	font-size: 3em;
-	line-height: 1;
-	font-family: 'Indie Flower', serif;
-	z-index: 10;
-	cursor: pointer;
-	@include breakpoint (max-width $small) {
-		font-size: 2.3em;
+#intro {
+	section {
+		@include backImage("../images/1st-page-redesign.jpg");
+		position: relative;
+		height: 100vh;
+		display: flex;
+	   align-items: center;
+	   justify-content: center;
+	   overflow: hidden;
 	}
-}
 
-#intro .circle {
-	position: absolute;
-	margin: -8px;
-	left: 50%;
-	top: 50%;
-	display: inline-block;
-	cursor: pointer;
-	z-index: 2;
-	width: 16px;
-	height: 16px;
-	opacity: .1;
-	background-color: #ccc;
-	border-radius: 100%;
-	transition: width 1s, height 1s, margin 1s, background-color 1s, opacity 1s;
-	@include breakpoint (max-width $medium) {
-		display: none;
+	h1 {
+		@include container(423px);
+		position: relative;
+		text-align: center;
+		color: #fff;
+		font-size: 3em;
+		line-height: 1;
+		font-family: 'Indie Flower', serif;
+		z-index: 10;
+		cursor: pointer;
+		@include breakpoint (max-width $small) {
+			font-size: 2.3em;
+		}
 	}
-}
 
-#intro .circle.open {
- 	width: 2032px;
- 	height: 2032px;
- 	margin: -1016px;
-   opacity: .5;
-   background: $violetWarm;
-}
+	.circle {
+		position: absolute;
+		margin: -8px;
+		left: 50%;
+		top: 50%;
+		display: inline-block;
+		cursor: pointer;
+		z-index: 2;
+		width: 16px;
+		height: 16px;
+		opacity: .1;
+		background-color: #ccc;
+		border-radius: 100%;
+		transition: width 1s, height 1s, margin 1s, background-color 1s, opacity 1s;
+		@include breakpoint (max-width 1024px) {
+			display: none;
+		}
+	}
 
-#intro .welcome {
-	padding-bottom: 15px;
-}
+	.circle.open {
+	 	width: 2032px;
+	 	height: 2032px;
+	 	margin: -1016px;
+	   opacity: .5;
+	   background: $violetWarm;
+	}
 
-#intro .hero-text p {
-	position: relative;
-	z-index: 3;
-	@include container(736px);
-}
+	.welcome {
+		padding-bottom: 15px;
+	}
 
-#intro .hero {
-	padding-bottom: 100px;
-	padding-top: 60px;
-	width: 100%;
-}
+	.hero-text p {
+		position: relative;
+		z-index: 3;
+		@include container(736px);
+	}
 
-#intro .hero-text {
-	font-size: 1em;
-	padding: 20px 0;
+	.hero {
+		padding-bottom: 100px;
+		padding-top: 60px;
+		width: 100%;
+	}
 
-	@include breakpoint (max-width $small) {
-		padding-bottom: 38px;
+	.hero-text {
 		font-size: 1em;
-		padding-top: 10px;
+		padding: 20px 0;
+
+		@include breakpoint (max-width $small) {
+			padding-bottom: 38px;
+			font-size: 1em;
+			padding-top: 10px;
+		}
 	}
-}
 
-#intro .hero-text p {
-	line-height: 1.5;
-	font-family: "Courgette", "Times New Roman", serif;
-	font-size: 1em;
-	color: $white;
-	text-align: center;
-	padding: 0.3em 1em;
-}
-
-#intro .snow {
-	background: url("../images/snow.png");
-	height: 130%;
-	width: 100%;
-	top: -200px;
-	position: absolute;
-	z-index: 1;
-	@include breakpoint(max-width 1024px) {
-		display: none;
+	.hero-text p {
+		line-height: 1.5;
+		font-family: "Courgette", "Times New Roman", serif;
+		font-size: 1em;
+		color: $white;
+		text-align: center;
+		padding: 0.3em 1em;
 	}
-}
 
-#intro .arrow {
-	width: 120px;
-	height: 120px;
-	left: 50%;
-	bottom: -88px;
-	margin-left: -60px;
-	text-align: center;
-	position: absolute;
-	cursor: pointer;
-	z-index: 10;
-	background: url("../images/arrow-down.png") no-repeat center 13px $white;
-	border-radius: 120px;
-	opacity: 0.7;
-	transition: all 100ms linear;
-
-	&:hover {
-		background-position: center 16px;
+	.snow {
+		background: url("../images/snow.png");
+		height: 130%;
+		width: 100%;
+		top: -200px;
+		position: absolute;
+		z-index: 1;
+		@include breakpoint(max-width 1024px) {
+			display: none;
+		}
 	}
-}
 
-#intro dl {
-	opacity: 0;
-	display: block;
-	position: absolute;
-	left: 50%;
-	bottom: 110px;
-	margin-left: -255px;	
-	width: 510px;
-	color: lighten($milky, 50);
-	@include breakpoint (max-width $medium) {
-		display: none;
+	.arrow {
+		width: 120px;
+		height: 120px;
+		left: 50%;
+		bottom: -88px;
+		margin-left: -60px;
+		text-align: center;
+		position: absolute;
+		cursor: pointer;
+		z-index: 10;
+		background: url("../images/arrow-down.png") no-repeat center 13px $white;
+		border-radius: 120px;
+		opacity: 0.7;
+		transition: all 100ms linear;
+
+		&:hover {
+			background-position: center 16px;
+		}
 	}
-}
 
-#intro dl div {
-	background-color: rgba(black, 0.4);
-	margin: 0 10px;
-	float: left;
-	width: 150px;
-	height: 150px;
-	padding: 20px;
-	border-radius: 200px;
-}
+	dl {
+		opacity: 0;
+		display: block;
+		position: absolute;
+		left: 50%;
+		bottom: 110px;
+		margin-left: -255px;	
+		width: 510px;
+		color: lighten($milky, 50);
+		@include breakpoint (max-width $medium) {
+			display: none;
+		}
+	}
 
-#intro dl dt {
-	font-family: "Open Sans", "Times New Roman", serif;
-	font-size: 0.9em;
-	text-transform: uppercase;
-	font-weight: 600;
-	line-height: 0.9;
-	text-align: center;
-	color: $milky;
-}
+	dl div {
+		background-color: rgba(black, 0.4);
+		margin: 0 10px;
+		float: left;
+		width: 150px;
+		height: 150px;
+		padding: 20px;
+		border-radius: 200px;
+	}
 
-#intro dl dd {
-	margin-top: 10px;
-	margin-left: 0;
-	font-family: "Courgette", "Times New Roman", serif;
-	font-size: 0.8em;
-	line-height: 1.3;
-	text-align: center;
-	color: lighten($milky, 15);
+	dl dt {
+		font-family: "Open Sans", "Times New Roman", serif;
+		font-size: 0.9em;
+		text-transform: uppercase;
+		font-weight: 600;
+		line-height: 0.9;
+		text-align: center;
+		color: $milky;
+	}
+
+	dl dd {
+		margin-top: 10px;
+		margin-left: 0;
+		font-family: "Courgette", "Times New Roman", serif;
+		font-size: 0.8em;
+		line-height: 1.3;
+		text-align: center;
+		color: lighten($milky, 15);
+	}
 }

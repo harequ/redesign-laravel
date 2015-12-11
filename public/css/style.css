@@ -405,15 +405,11 @@ h2 {
     h2 {
       font-size: 2.2em;
       line-height: 45px; } }
-  @media (max-width: 470px) {
-    h2 {
-      font-size: 1.9em;
-      line-height: 30px; } }
   @media (max-width: 370px) {
     h2 {
       margin: 10px 0 5px;
-      font-size: 1.4em;
-      line-height: 25px;
+      font-size: 1.8em;
+      line-height: 40px;
       display: block; } }
 
 .line {
@@ -698,7 +694,7 @@ footer {
   background-color: #ccc;
   border-radius: 100%;
   transition: width 1s, height 1s, margin 1s, background-color 1s, opacity 1s; }
-  @media (max-width: 960px) {
+  @media (max-width: 1024px) {
     #intro .circle {
       display: none; } }
 
@@ -847,8 +843,9 @@ footer {
     #work .project-wrap:last-child {
       border-bottom: none; }
   #work .project {
-    padding: 40px 20px;
-    max-width: 730px;
+    padding: 40px 10px;
+    display: table;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto; }
     #work .project:after {
@@ -860,17 +857,22 @@ footer {
     @media (max-width: 750px) {
       #work h2 {
         margin-bottom: 10px; } }
-  #work .project img {
+  #work .project-image {
     width: 49.1525423729%;
-    float: left;
-    margin-right: 1.6949152542%;
+    display: table-cell;
+    vertical-align: middle; }
+    #work .project-image a {
+      line-height: 0;
+      display: inline-block; }
+  #work .project img {
     border-radius: 5px;
     padding-top: 30px;
     background: #584449;
     background-image: url("../images/browser-circles.png");
     background-size: 44px 10px;
     background-repeat: no-repeat;
-    background-position: 10px 10px; }
+    background-position: 10px 10px;
+    max-width: 360px; }
     @media (min-width: 0) and (max-width: 750px) {
       #work .project img {
         clear: both;
@@ -878,17 +880,18 @@ footer {
         float: left;
         margin-left: 0;
         margin-right: 0;
-        max-width: 410px;
         padding-left: 0;
         padding-right: 0;
         display: block;
         margin: 0 auto;
         float: none; } }
+  @media (min-width: 0) and (max-width: 750px) {
+    #work .project .excerpt {
+      margin-top: 20px; } }
   #work .project div {
-    padding-top: 25px;
+    display: table-cell;
+    vertical-align: middle;
     width: 49.1525423729%;
-    float: right;
-    margin-right: 0;
     padding-left: 30px; }
     @media (min-width: 0) and (max-width: 750px) {
       #work .project div {
@@ -900,8 +903,7 @@ footer {
         margin-right: 0;
         padding-left: 0%;
         padding-top: 0;
-        text-align: center;
-        margin-top: 20px; } }
+        text-align: center; } }
     #work .project div p {
       padding-top: 12px;
       color: #b3b3b3; }
@@ -1278,17 +1280,20 @@ footer {
       -webkit-transform: translate(0px, 0px);
       transform: translate(0px, 0px); }
   .overlay .close-btn {
-    background: url("../images/close.png");
-    height: 24px;
-    width: 24px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #666666;
     position: absolute;
-    bottom: -34px;
-    right: 0;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
     opacity: 0.5;
-    transition: all 200ms; }
+    transition: all 100ms; }
     .overlay .close-btn:hover {
-      opacity: 0.8; }
+      border-bottom-color: #FF895A;
+      opacity: 1; }
   .overlay .modal {
     -webkit-transform: translate(0px, -60px);
     transform: translate(0px, -60px);
@@ -1333,11 +1338,11 @@ footer {
         box-shadow: 0 0 1px #644D52 inset; }
     .overlay .modal input {
       height: 30px;
-      border-bottom: 1px dashed #d0cbc1; }
+      border-radius: 0; }
     .overlay .modal textarea {
       height: 100px;
-      border-bottom: 1px dashed #d0cbc1;
-      display: block; }
+      display: block;
+      border-radius: 0; }
     .overlay .modal input[type="submit"] {
       margin-top: 10px;
       height: 40px;
@@ -1345,11 +1350,12 @@ footer {
       background-color: #A49A87;
       color: #F2EBC7;
       cursor: pointer;
-      transition: all 200ms ease-in-out;
+      transition: all 100ms ease;
       box-shadow: none;
       font-family: "Roboto Slab", "Times New Roman", serif;
       font-size: 0.8em;
-      font-weight: 400; }
+      font-weight: 400;
+      border-radius: 0; }
       .overlay .modal input[type="submit"]:hover {
         border-top: 3px solid #FF895A; }
     .overlay .modal .success p {
