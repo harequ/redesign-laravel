@@ -1697,7 +1697,7 @@ footer.footer-project {
   box-shadow: 0 0 3px #cccccc; }
   .carousel img {
     margin: 150px auto;
-    max-height: 200px; }
+    max-height: 150px; }
     @media (max-width: 370px) {
       .carousel img {
         margin: 100px auto;
