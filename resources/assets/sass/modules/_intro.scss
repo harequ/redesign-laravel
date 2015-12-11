@@ -106,13 +106,14 @@
 		position: absolute;
 		cursor: pointer;
 		z-index: 10;
-		background: url("../images/arrow-down.png") no-repeat center 13px $white;
+		background: url("../images/arrow-down.png") no-repeat center 11px $white;
+		background-size: 18px 12px;
 		border-radius: 120px;
-		opacity: 0.7;
+		opacity: 0.2;
 		transition: all 100ms linear;
 
 		&:hover {
-			background-position: center 16px;
+			background-position: center 14px;
 		}
 	}
 
@@ -131,7 +132,7 @@
 	}
 
 	dl div {
-		background-color: rgba(black, 0.4);
+		background-color: rgba(darken($violetWarm, 20), 0.7);
 		margin: 0 10px;
 		float: left;
 		width: 150px;

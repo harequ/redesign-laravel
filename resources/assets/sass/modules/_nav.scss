@@ -1,10 +1,10 @@
 header #nav {
-
 	@include clearfix;
 	z-index: 10;
-	background: darken($violetWarm, 20);
+	background: darken($violetWarm, 5);
+	border-bottom: 1px dashed lighten($violetWarm, 1);
 	width: 100%;
-	opacity: 0.9;
+	opacity: 0.95;
 	overflow: hidden;
 
 	#pull {
@@ -115,3 +115,7 @@ header #nav {
 		} //ul
 	} //.navbar
 } //#nav
+
+.sticky-wrapper {
+	background: $violetWarm;
+}

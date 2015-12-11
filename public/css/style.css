@@ -482,9 +482,10 @@ p {
 
 header #nav {
   z-index: 10;
-  background: #2a2123;
+  background: #564246;
+  border-bottom: 1px dashed #674f54;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.95;
   overflow: hidden; }
   header #nav:before, header #nav:after {
     content: '';
@@ -574,6 +575,9 @@ header #nav {
             header #nav .navbar ul li:hover {
               border-top: 1px solid #564246;
               background-color: #392c2f; } }
+
+.sticky-wrapper {
+  background: #644D52; }
 
 footer {
   height: 100vh;
@@ -759,12 +763,13 @@ footer {
   position: absolute;
   cursor: pointer;
   z-index: 10;
-  background: url("../images/arrow-down.png") no-repeat center 13px #f0f0f0;
+  background: url("../images/arrow-down.png") no-repeat center 11px #f0f0f0;
+  background-size: 18px 12px;
   border-radius: 120px;
-  opacity: 0.7;
+  opacity: 0.2;
   transition: all 100ms linear; }
   #intro .arrow:hover {
-    background-position: center 16px; }
+    background-position: center 14px; }
 
 #intro dl {
   opacity: 0;
@@ -780,7 +785,7 @@ footer {
       display: none; } }
 
 #intro dl div {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(42, 33, 35, 0.7);
   margin: 0 10px;
   float: left;
   width: 150px;
