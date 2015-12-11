@@ -694,9 +694,6 @@ footer {
   background-color: #ccc;
   border-radius: 100%;
   transition: width 1s, height 1s, margin 1s, background-color 1s, opacity 1s; }
-  @media (max-width: 1024px) {
-    #intro .circle {
-      display: none; } }
 
 #intro .circle.open {
   width: 2032px;
@@ -778,7 +775,7 @@ footer {
   margin-left: -255px;
   width: 510px;
   color: white; }
-  @media (max-width: 960px) {
+  @media (max-width: 1024px) {
     #intro dl {
       display: none; } }
 
@@ -1330,6 +1327,7 @@ footer {
       font-family: "Courgette", "Times New Roman", serif;
       outline: none;
       width: 100%;
+      border-style: solid;
       color: #666666;
       border: 1px solid white;
       box-shadow: 0 0 1px #F2EBC7 inset;

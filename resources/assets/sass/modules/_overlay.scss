@@ -29,9 +29,6 @@
 		border-right: 10px solid transparent;
 		
 		border-bottom: 10px solid $grey;
-		// background: url("../images/close.png");
-		// height: 24px;
-		// width: 24px;
 		position: absolute;
 		top: 20px;
 		right: 20px;
@@ -81,6 +78,7 @@
 			font-family: "Courgette", "Times New Roman", serif;
 			outline: none;
 			width: 100%;
+			border-style: solid;
 			color: $grey;
 			border: 1px solid white;
 			box-shadow: 0 0 1px $creamy inset;
@@ -93,13 +91,11 @@
 
 		input {
 			height: 30px;
-			// border-bottom: 1px dashed lighten($awesome, 20);
 			border-radius: 0;
 		}
 
 		textarea {
 			height: 100px;
-			// border-bottom: 1px dashed lighten($awesome, 20);
 			display: block;
 			border-radius: 0;
 		}

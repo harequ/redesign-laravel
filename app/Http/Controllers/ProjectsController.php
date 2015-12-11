@@ -78,7 +78,7 @@ class ProjectsController extends Controller
             $thumb = Image::make($request->file('thumbnail')->getRealPath());
             $thumb->fit(720, 520, function ($constraint) {
                 $constraint->upsize();
-            })->save($projectPath . $thumbName, 100);
+            })->save($projectPath . $thumbName);
 
             // set the thumbnail field into the database
             $project->thumbnail = $thumbName; 

@@ -43,7 +43,9 @@ $(function() {
 	        opacity2 = offset/fadeUntil;
 	    }
 
-	    hero.css('opacity', opacity);
+	    if($(window).width() > 1024) {
+	    	hero.css('opacity', opacity);
+	    }
 	    threeCircles.css('opacity', opacity2);
 
 	    // Highlighting active nav menu items
@@ -219,64 +221,6 @@ $(function() {
     		$(form).ajaxSubmit(options);
   		}
   	});
-
-			// e.preventDefault();
-
-			// var form = $('#get-in-touch');
-			// var action = form.attr('action');
-			// var CSRF_TOKEN = form.find('input[name=_token]').val();
-			// var name = form.find('input[name=name]').val();
-			// var email = form.find('input[name=email]').val();
-			// var message = form.find('textarea[name=message]').val();
-			
-			// $.ajax({
-			// 	type: 'POST',
-			// 	url: action,
-			// 	data: ({'name' : name, 'email' : email, 'message' : message}),
-			// 	headers: {
-			// 		'X-CSRF-TOKEN': CSRF_TOKEN 
-			// 	},
-			// 	success: function(data) {
-			// 		if(data == "success")
-			// 			form.replaceWith("<div class='success'><p>Your message has been sent.</p><p>Thank you!</p></div>");
-			// 		else 
-			// 			alert('failed');
-			// 	},
-			// 	error: function(xhr) {
-			// 		$('body').append(xhr.responseText);
-			// 	}
-			// });
-
-	// $('#submit').on('click', function(e) {
-	// 	e.preventDefault();
-
-	// 	var form = $('#get-in-touch');
-	// 	var action = form.attr('action');
-	// 	var CSRF_TOKEN = form.find('input[name=_token]').val();
-	// 	var name = form.find('input[name=name]').val();
-	// 	var email = form.find('input[name=email]').val();
-	// 	var message = form.find('textarea[name=message]').val();
-		
-
-	// 	$.ajax({
-	// 		type: 'POST',
-	// 		url: action,
-	// 		data: ({'name' : name, 'email' : email, 'message' : message}),
-	// 		headers: {
-	// 			'X-CSRF-TOKEN': CSRF_TOKEN 
-	// 		},
-	// 		success: function(data) {
-	// 			if(data == "success")
-	// 				form.replaceWith("<div class='success'><p>Your message has been sent.</p><p>Thank you!</p></div>");
-	// 			else 
-	// 				alert('failed');
-	// 		},
-	// 		error: function(xhr) {
-	// 			$('body').append(xhr.responseText);
-	// 		}
-	// 	});
-
-	// });
 
 	/*
 	=============================================

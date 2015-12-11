@@ -4,9 +4,9 @@
 		position: relative;
 		height: 100vh;
 		display: flex;
-	   align-items: center;
-	   justify-content: center;
-	   overflow: hidden;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
 	}
 
 	h1 {
@@ -38,17 +38,14 @@
 		background-color: #ccc;
 		border-radius: 100%;
 		transition: width 1s, height 1s, margin 1s, background-color 1s, opacity 1s;
-		@include breakpoint (max-width 1024px) {
-			display: none;
-		}
 	}
 
 	.circle.open {
 	 	width: 2032px;
 	 	height: 2032px;
 	 	margin: -1016px;
-	   opacity: .5;
-	   background: $violetWarm;
+		opacity: .5;
+		background: $violetWarm;
 	}
 
 	.welcome {
@@ -128,7 +125,7 @@
 		margin-left: -255px;	
 		width: 510px;
 		color: lighten($milky, 50);
-		@include breakpoint (max-width $medium) {
+		@include breakpoint (max-width 1024px) {
 			display: none;
 		}
 	}
