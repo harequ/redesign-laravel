@@ -28,7 +28,7 @@ footer {
 
 	.tree {
 		background: url("../images/footer-tree.png") no-repeat center bottom, url("../images/paper-bg.png");
-		@include image-2x("../images/footer-tree-2x.png", 4000px, 928px);
+		@include image-2x("../images/footer-tree-2x.png", 2000px, 460px);
 		height: 495px;
 		width: 100%;
 		padding-top: 30px;
