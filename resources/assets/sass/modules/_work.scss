@@ -3,6 +3,7 @@
 
 	h3 {
 		line-height: 1;
+		padding-right: 15px;
 		text-decoration: none;
 		transition: border-left 100ms linear 0ms,
 						padding-left 100ms linear 0ms;
@@ -15,6 +16,7 @@
 		}
 
 		@include breakpoint(0 750px) {
+			padding-right: 0;
 			transition-property: none;
 			&:hover {
 				transition-property: none;
