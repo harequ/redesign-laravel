@@ -820,16 +820,14 @@ footer {
   background: url("../images/triangular-bg.png") #644D52; }
   #work h3 {
     line-height: 1;
-    padding-right: 15px;
     text-decoration: none;
     transition: border-left 100ms linear 0ms, padding-left 100ms linear 0ms; }
     #work h3:hover {
       transition: border-left 100ms linear 0ms, padding-left 100ms ease-out 100ms;
       border-left: 3px solid #FF895A;
-      padding-left: 15px; }
+      padding-left: 6px; }
     @media (min-width: 0) and (max-width: 750px) {
       #work h3 {
-        padding-right: 0;
         transition-property: none; }
         #work h3:hover {
           transition-property: none;
