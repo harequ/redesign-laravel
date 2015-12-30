@@ -3,7 +3,7 @@
 		<div class="snow"></div>
 		<div class="hero">
 			<div class="hero-text">
-				<h1>Web-Designer <br>front-end & back-end<br> developer</h1>
+				<h1>Web-Designer &<br>front-end developer</h1>
 				<div class="circle"></div>
 				<div class="welcome">
 					<p>Hello, my name is Constantine.</p>
