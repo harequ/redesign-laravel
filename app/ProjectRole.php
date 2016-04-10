@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectRole extends Model
 {
 	protected $fillable = [
-	'name'
+		'name'
 	];
 
 	/**

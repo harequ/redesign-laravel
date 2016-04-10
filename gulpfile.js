@@ -42,7 +42,11 @@ var elixir = require('laravel-elixir');
     mix.version(['css/dashboard.css', 'css/style.css', 'js/dashboard.js', 'js/app.js']);
 
     mix.browserSync({
-        proxy: 'localhost'
+        open: 'external',
+        host: 'redesign-laravel.app',
+        proxy: 'redesign-laravel.app',
+        port: 3000,
+        notify: false
     });
 
 });

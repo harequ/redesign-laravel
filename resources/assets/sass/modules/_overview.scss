@@ -49,7 +49,7 @@
 		}
 
 		ul{
-		list-style: none inside;
+			list-style: none inside;
 		}
 
 		ul li {
@@ -100,13 +100,15 @@
 			}
 
 			img {
+				display: block;
+				margin: 0 auto;
 				width: auto;
 				max-width: 100%;
 			}
 
 			line-height: 0;
 			border: 10px solid white;
-			background-color: $violetWarm;
+			background-color: white;
 			box-shadow: 0 0 3px lighten($grey, 40);
 			margin: 80px 0;
 		}
